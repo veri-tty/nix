@@ -4,11 +4,15 @@
 {
   config,
   pkgs,
+  inputs,
   ...
 }: {
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
+  ];
+  environment.systemPackages = with pkgs; [
+    inputs.mic92.packages.x86_64-linux.hello-nur
   ];
 
   # Bootloader.
@@ -99,7 +103,6 @@
   };
 
   # Install firefox.
-  programs.firefox.enable = true;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;

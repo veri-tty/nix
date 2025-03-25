@@ -36,6 +36,21 @@
         "type": "github"
       }
     },
+    "flake-utils_2": {
+      "locked": {
+        "lastModified": 1629284811,
+        "narHash": "sha256-JHgasjPR0/J1J3DRm4KxM4zTyAj4IOJY8vIl75v/kPI=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "c5d161cc0af116a2e17f54316f0bf43f0819785c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -54,6 +69,24 @@
         "owner": "nix-community",
         "ref": "release-24.11",
         "repo": "home-manager",
+        "type": "github"
+      }
+    },
+    "mic92": {
+      "inputs": {
+        "nixpkgs": "nixpkgs"
+      },
+      "locked": {
+        "lastModified": 1741174190,
+        "narHash": "sha256-yxTBmmmCa1RABqnLbtrjuHEgmarBRfKiNZe8r4cpUVU=",
+        "owner": "Mic92",
+        "repo": "nur-packages",
+        "rev": "d49cfe88cd433c6587ba958e3a8ebd5661020ad7",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Mic92",
+        "repo": "nur-packages",
         "type": "github"
       }
     },
@@ -100,18 +133,18 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1742268799,
-        "narHash": "sha256-IhnK4LhkBlf14/F8THvUy3xi/TxSQkp9hikfDZRD4Ic=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "da044451c6a70518db5b730fe277b70f494188f1",
-        "type": "github"
+        "lastModified": 1741169294,
+        "narHash": "sha256-O7rl2AOqY/Vw6WeY3dVd/mZft8Ku3xVWoTmrROR/gW4=",
+        "ref": "refs/heads/main",
+        "rev": "8b45feb673c06b7886e382b942f7481fded56cf1",
+        "shallow": true,
+        "type": "git",
+        "url": "https://github.com/Mic92/nixpkgs"
       },
       "original": {
-        "owner": "nixos",
-        "ref": "nixos-24.11",
-        "repo": "nixpkgs",
-        "type": "github"
+        "shallow": true,
+        "type": "git",
+        "url": "https://github.com/Mic92/nixpkgs"
       }
     },
     "nixpkgs-lib": {
@@ -130,6 +163,38 @@
       }
     },
     "nixpkgs_2": {
+      "locked": {
+        "lastModified": 1742268799,
+        "narHash": "sha256-IhnK4LhkBlf14/F8THvUy3xi/TxSQkp9hikfDZRD4Ic=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "da044451c6a70518db5b730fe277b70f494188f1",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-24.11",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_3": {
+      "locked": {
+        "lastModified": 1627814220,
+        "narHash": "sha256-P+MDgdZw2CBk9X1ZZaUgHgN+32pTfLFf3XVIBOXirI4=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "ab5b6828af26215bf2646c31961da5d3749591ef",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixpkgs-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_4": {
       "locked": {
         "lastModified": 1735471104,
         "narHash": "sha256-0q9NGQySwDQc7RhAV2ukfnu7Gxa5/ybJ2ANT8DQrQrs=",
@@ -190,8 +255,10 @@
     "root": {
       "inputs": {
         "home-manager": "home-manager",
-        "nixpkgs": "nixpkgs",
+        "mic92": "mic92",
+        "nixpkgs": "nixpkgs_2",
         "nvf": "nvf",
+        "rycee": "rycee",
         "zen-browser": "zen-browser"
       }
     },
@@ -215,6 +282,27 @@
         "owner": "oxalica",
         "repo": "rust-overlay",
         "type": "github"
+      }
+    },
+    "rycee": {
+      "inputs": {
+        "flake-utils": "flake-utils_2",
+        "nixpkgs": "nixpkgs_3"
+      },
+      "locked": {
+        "dir": "pkgs/firefox-addons",
+        "lastModified": 1742773104,
+        "narHash": "sha256-dAhrL+gEjNN5U/Sosy7IrX0Y0qPA0U7Gp9TBhqEliNU=",
+        "owner": "rycee",
+        "repo": "nur-expressions",
+        "rev": "d74460da63a8c08a69a1f143b04f2ab1a6b2f5c2",
+        "type": "gitlab"
+      },
+      "original": {
+        "dir": "pkgs/firefox-addons",
+        "owner": "rycee",
+        "repo": "nur-expressions",
+        "type": "gitlab"
       }
     },
     "systems": {
@@ -249,7 +337,7 @@
     },
     "zen-browser": {
       "inputs": {
-        "nixpkgs": "nixpkgs_2"
+        "nixpkgs": "nixpkgs_4"
       },
       "locked": {
         "lastModified": 1727721329,

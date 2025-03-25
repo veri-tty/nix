@@ -27,9 +27,16 @@
     enable = true;
     profiles = {
       tech = {
-        id = 1;
+        id = 0;
         name = "tech";
         isDefault = true;
+        path = "tech.default";
+        extensions = with inputs.rycee.packages.x86_64-linux; [
+          bitwarden
+          ublock-origin
+          privacy-badger
+          linkwarden
+        ];
       };
     };
   };

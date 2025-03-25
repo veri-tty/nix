@@ -22,9 +22,11 @@
       # Optionally, you can also override individual plugins
       # for example:
     };
+    rycee.url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
+    mic92.url = "github:Mic92/nur-packages";
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }@inputs:{
+  outputs = { self, nixpkgs, home-manager, mic92, rycee, ... }@inputs:{
     nixosConfigurations = {
       fitz = nixpkgs.lib.nixosSystem {
         specialArgs = {
@@ -41,7 +43,6 @@
             home-manager.useUserPackages = true;
             home-manager.extraSpecialArgs = {inherit inputs;};
 
-            # TODO replace ryan with your own username
             home-manager.users.ml = import ./home.nix;
           }
         ];
