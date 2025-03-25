@@ -13,10 +13,6 @@
       # to avoid problems caused by different versions of nixpkgs.
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nur = {
-      url = "github:nix-community/NUR";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     nvf = {
       url = "github:notashelf/nvf";
       # You can override the input nixpkgs to follow your system's
@@ -28,17 +24,15 @@
     };
   };
 
-  outputs = inputs @ {
-    nixpkgs,
-    home-manager,
-    ...
-  }: {
+  outputs = { self, nixpkgs, home-manager, ... }@inputs:{
     nixosConfigurations = {
       fitz = nixpkgs.lib.nixosSystem {
+        specialArgs = {
+        inherit inputs;
+        };
         system = "x86_64-linux";
         modules = [
           ./configuration.nix
-
           # make home-manager as a module of nixos
           # so that home-manager configuration will be deployed automatically when executing `nixos-rebuild switch`
           home-manager.nixosModules.home-manager
@@ -49,8 +43,6 @@
 
             # TODO replace ryan with your own username
             home-manager.users.ml = import ./home.nix;
-
-            # Optionally, use home-manager.extraSpecialArgs to pass arguments to home.nix
           }
         ];
       };
