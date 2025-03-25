@@ -27,10 +27,12 @@
     enable = true;
     profiles = {
       tech = {
-        id = "1";
+        id = 1;
+        name = "tech";
+        isDefault = true;
       };
     };
-  }
+  };
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
     # here is some command line tools I use frequently
