@@ -23,18 +23,35 @@
   #     xxx
   # '';
 
+  programs.floorp = {
+    enable = true;
+    profiles = {
+      tech = {
+        id = "1";
+      };
+    };
+  }
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
     # here is some command line tools I use frequently
     # feel free to add your own or remove some of them
     inputs.nvf.packages."${system}".default
     inputs.zen-browser.packages."${system}".default
+    vscode
     neofetch
     nnn # terminal file manager
+    openvpn
+    nmap
+    wireshark
 
+    obsidian
+    spotify-qt
+    spotify-player
     spotify
+    remmina
     # archives
     zip
+    inetutils
     xz
     unzip
     p7zip
@@ -140,6 +157,7 @@
     # set some aliases, feel free to add more or remove some
     shellAliases = {
       nrs = "sudo nixos-rebuild switch --flake /home/ml/projects/flake#fitz";
+      thm = "sudo openvpn --config /home/ml/projects/thm/verityl.ovpn";
     };
   };
 
