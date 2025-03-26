@@ -50,14 +50,12 @@
     neofetch
     nnn # terminal file manager
     openvpn
-    nmap
-    wireshark
+    alejandra
 
     obsidian
-    spotify-qt
-    spotify-player
+
     spotify
-    remmina
+    remmina # rdp
     # archives
     zip
     inetutils
@@ -82,6 +80,8 @@
     socat # replacement of openbsd-netcat
     nmap # A utility for network discovery and security auditing
     ipcalc # it is a calculator for the IPv4/v6 addresses
+    wireshark # A network protocol analyzer
+    tcpdump # A network packet analyzer
 
     # misc
     cowsay

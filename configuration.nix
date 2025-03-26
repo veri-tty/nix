@@ -7,25 +7,9 @@
   inputs,
   ...
 }: {
-  imports = [
-    # Include the results of the hardware scan.
-    ./hardware-configuration.nix
-  ];
-  environment.systemPackages = with pkgs; [
-    inputs.mic92.packages.x86_64-linux.hello-nur
-  ];
-
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-
-  boot.initrd.luks.devices."luks-65d679f5-952e-4289-85e2-1d947410a095".device = "/dev/disk/by-uuid/65d679f5-952e-4289-85e2-1d947410a095";
-  networking.hostName = "fitz"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -55,7 +39,12 @@
   services.xserver.enable = true;
 
   services.tailscale.enable = true;
-  services.syncthing.enable = true;
+  services.syncthing = {
+    enable = true;
+    user = "ml ";
+    dataDir = "/home/ml"; # default location for new folders
+    configDir = "/home/ml/.config/syncthing";
+  };
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
@@ -68,7 +57,6 @@
 
   # Configure console keymap
   console.keyMap = "de";
-  
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
