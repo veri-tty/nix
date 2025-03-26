@@ -119,6 +119,7 @@
     ethtool
     pciutils # lspci
     usbutils # lsusb
+    bambu-studio
   ];
 
   # basic configuration of git, please change to your own
