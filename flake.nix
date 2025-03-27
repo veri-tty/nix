@@ -14,6 +14,7 @@
     };
     rycee.url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
     mic92.url = "github:Mic92/nur-packages";
+    nixos-cosmic.url = "github:lilyinstarlight/nixos-cosmic";
   };
 
   outputs = {
@@ -22,6 +23,7 @@
     home-manager,
     mic92,
     rycee,
+    nixos-cosmic,
     ...
   } @ inputs: {
     nixosConfigurations = {
@@ -34,6 +36,7 @@
           ./configuration.nix
           ./machines/fitz.nix
           home-manager.nixosModules.home-manager
+          nixos-cosmic.nixosModules.default
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
@@ -51,6 +54,8 @@
           ./configuration.nix
           ./machines/roamer.nix
           home-manager.nixosModules.home-manager
+          nixos-cosmic.nixosModules.default
+
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
