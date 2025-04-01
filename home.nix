@@ -4,6 +4,9 @@
   inputs,
   ...
 }: {
+  imports = [
+    ./hyprland.nix
+  ];
   # TODO please change the username & home directory to your own
   home.username = "ml";
   home.homeDirectory = "/home/ml";
@@ -59,10 +62,12 @@
     # archives
     zip
     inetutils
+    cachix
     xz
     unzip
     p7zip
     gopro
+    python3
 
     # utils
     ripgrep # recursively searches directories for a regex pattern

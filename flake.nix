@@ -14,6 +14,7 @@
     };
     rycee.url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
     mic92.url = "github:Mic92/nur-packages";
+    catppuccin.url = "github:catppuccin/nix";
   };
 
   outputs = {
@@ -22,6 +23,7 @@
     home-manager,
     mic92,
     rycee,
+    catppuccin,
     ...
   } @ inputs: {
     nixosConfigurations = {
@@ -34,6 +36,7 @@
           ./configuration.nix
           ./machines/fitz.nix
           home-manager.nixosModules.home-manager
+          catppuccin.nixosModules.catppuccin
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
