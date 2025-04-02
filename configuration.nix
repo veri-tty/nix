@@ -10,6 +10,7 @@
   imports = [
     ./pentesting.nix
   ];
+
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -43,18 +44,19 @@
     shellAliases = {
       nrs = "sudo nixos-rebuild switch --flake /home/ml/projects/flake#fitz";
       thm = "sudo openvpn --config /home/ml/projects/thm/verityl.ovpn";
+      claude = "/home/ml/.npm-packages/bin//claude";
     };
   };
   services.tailscale.enable = true;
   services.syncthing = {
     enable = true;
-    user = "ml ";
+    user = "ml";
     dataDir = "/home/ml"; # default location for new folders
     configDir = "/home/ml/.config/syncthing";
   };
   # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+  services.xserver.displayManager.gdm.enable = false;
+  services.xserver.desktopManager.gnome.enable = false;
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -73,7 +75,6 @@
   services.printing.enable = true;
 
   # Enable sound with pipewire.
-  hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -87,9 +88,13 @@
     # no need to redefine it in your config for now)
     #media-session.enable = true;
   };
-
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
+  environment.systemPackages = [
+    pkgs.pw-volume
+    pkgs.nerd-fonts.sauce-code-pro
+    pkgs.feather
+    pkgs.node2nix
+    pkgs.nodejs_23
+  ];
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.ml = {
