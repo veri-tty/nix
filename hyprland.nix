@@ -4,20 +4,24 @@
   inputs,
   ...
 }: {
+  # Hyprland-related packages
   home.packages = with pkgs; [
-    hyprpaper
-    hyprshot
+    hyprpaper  # Wallpaper manager for Hyprland
+    hyprshot   # Screenshot tool for Hyprland
   ];
+  
+  # Hyprpaper service configuration
   services.hyprpaper = {
     enable = true;
     settings = {
       preload = ["/home/ml/pics/wall/wallhaven-jx632y.jpg"];
-
       wallpaper = [
         "DP-1,/home/ml/pics/wall/wallhaven-jx632y.jpg"
       ];
     };
   };
+  
+  # Hyprlock screen locker configuration
   programs.hyprlock = {
     enable = true;
     extraConfig = ''
@@ -102,7 +106,7 @@
       # User
       label {
           monitor =
-          text =    $USER
+          text =    $USER
           color = $color12
           font_size = 18
           font_family = Inter Display Medium
@@ -153,22 +157,25 @@
     '';
   };
 
+  # Hyprland window manager configuration
   wayland.windowManager.hyprland = {
     enable = true;
     extraConfig = ''
+      # Monitor configuration
       monitor=DP-2,2560x1440@120, 0x0, 1
 
-      # Set programs that you use
+      # Default applications
       $terminal = alacritty
       $menu = wofi --show drun
 
+      # Startup applications
       exec-once = hyprpaper --config /home/ml/.config/hypr/hyprpaper.conf
 
-
+      # Environment variables
       env = XCURSOR_SIZE,24
       env = HYPRCURSOR_SIZE,24
 
-
+      # General UI configuration
       general {
           gaps_in = 5
           gaps_out = 20
@@ -188,7 +195,7 @@
           layout = dwindle
       }
 
-      # https://wiki.hyprland.org/Configuring/Variables/#decoration
+      # Window decoration settings
       decoration {
           rounding = 10
 
@@ -213,7 +220,7 @@
           }
       }
 
-      # https://wiki.hyprland.org/Configuring/Variables/#animations
+      # Animation settings
       animations {
           enabled = yes, please :)
 
@@ -243,7 +250,7 @@
           animation = workspacesOut, 1, 1.94, almostLinear, fade
       }
 
-      # Ref https://wiki.hyprland.org/Configuring/Workspace-Rules/
+      # Workspace rules
       # "Smart gaps" / "No gaps when only"
       # uncomment all if you wish to use that.
       # workspace = w[tv1], gapsout:0, gapsin:0
@@ -253,29 +260,23 @@
       # windowrule = bordersize 0, floating:0, onworkspace:f[1]
       # windowrule = rounding 0, floating:0, onworkspace:f[1]
 
-      # See https://wiki.hyprland.org/Configuring/Dwindle-Layout/ for more
+      # Layout settings
       dwindle {
           pseudotile = true # Master switch for pseudotiling. Enabling is bound to mainMod + P in the keybinds section below
           preserve_split = true # You probably want this
       }
 
-      # See https://wiki.hyprland.org/Configuring/Master-Layout/ for more
       master {
           new_status = master
       }
 
-      # https://wiki.hyprland.org/Configuring/Variables/#misc
+      # Miscellaneous settings
       misc {
           force_default_wallpaper = -1 # Set to 0 or 1 to disable the anime mascot wallpapers
           disable_hyprland_logo = false # If true disables the random hyprland logo / anime girl background. :(
       }
 
-
-      #############
-      ### INPUT ###
-      #############
-
-      # https://wiki.hyprland.org/Configuring/Variables/#input
+      # Input configuration
       input {
           kb_layout = de
           kb_variant =
@@ -292,27 +293,21 @@
           }
       }
 
-      # https://wiki.hyprland.org/Configuring/Variables/#gestures
+      # Gesture configuration
       gestures {
           workspace_swipe = false
       }
 
-      # Example per-device config
-      # See https://wiki.hyprland.org/Configuring/Keywords/#per-device-input-configs for more
+      # Per-device configuration
       device {
           name = epic-mouse-v1
           sensitivity = -0.5
       }
 
-
-      ###################
-      ### KEYBINDINGS ###
-      ###################
-
-      # See https://wiki.hyprland.org/Configuring/Keywords/
+      # Keybindings
       $mainMod = SUPER # Sets "Windows" key as main modifier
 
-      # Example binds, see https://wiki.hyprland.org/Configuring/Binds/ for more
+      # Application shortcuts
       bind = $mainMod, Return, exec, $terminal
       bind = $mainMod, Q, killactive,
       bind = $mainMod, M, exit,
@@ -324,15 +319,13 @@
       bind = $mainMod, L, exec, hyprlock
       bind = $mainMod, C, exec, code
 
-
-
-      # Move focus with mainMod + arrow keys
+      # Window navigation
       bind = $mainMod, left, movefocus, l
       bind = $mainMod, right, movefocus, r
       bind = $mainMod, up, movefocus, u
       bind = $mainMod, down, movefocus, d
 
-      # Switch workspaces with mainMod + [0-9]
+      # Workspace navigation
       bind = $mainMod, 1, workspace, 1
       bind = $mainMod, 2, workspace, 2
       bind = $mainMod, 3, workspace, 3
@@ -344,7 +337,7 @@
       bind = $mainMod, 9, workspace, 9
       bind = $mainMod, 0, workspace, 10
 
-      # Move active window to a workspace with mainMod + SHIFT + [0-9]
+      # Move windows to workspaces
       bind = $mainMod SHIFT, 1, movetoworkspace, 1
       bind = $mainMod SHIFT, 2, movetoworkspace, 2
       bind = $mainMod SHIFT, 3, movetoworkspace, 3
@@ -356,19 +349,19 @@
       bind = $mainMod SHIFT, 9, movetoworkspace, 9
       bind = $mainMod SHIFT, 0, movetoworkspace, 10
 
-      # Example special workspace (scratchpad)
+      # Special workspace (scratchpad)
       bind = $mainMod, S, togglespecialworkspace, magic
       bind = $mainMod SHIFT, S, movetoworkspace, special:magic
 
-      # Scroll through existing workspaces with mainMod + scroll
+      # Mouse navigation
       bind = $mainMod, mouse_down, workspace, e+1
       bind = $mainMod, mouse_up, workspace, e-1
 
-      # Move/resize windows with mainMod + LMB/RMB and dragging
+      # Window manipulation with mouse
       bindm = $mainMod, mouse:272, movewindow
       bindm = $mainMod, mouse:273, resizewindow
 
-      # Laptop multimedia keys for volume and LCD brightness
+      # Media keys
       bindel = ,XF86AudioRaiseVolume, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+
       bindel = ,XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
       bindel = ,XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
@@ -376,23 +369,13 @@
       bindel = ,XF86MonBrightnessUp, exec, brightnessctl s 10%+
       bindel = ,XF86MonBrightnessDown, exec, brightnessctl s 10%-
 
-      # Requires playerctl
+      # Media player controls
       bindl = , XF86AudioNext, exec, playerctl next
       bindl = , XF86AudioPause, exec, playerctl play-pause
       bindl = , XF86AudioPlay, exec, playerctl play-pause
       bindl = , XF86AudioPrev, exec, playerctl previous
 
-      ##############################
-      ### WINDOWS AND WORKSPACES ###
-      ##############################
-
-      # See https://wiki.hyprland.org/Configuring/Window-Rules/ for more
-      # See https://wiki.hyprland.org/Configuring/Workspace-Rules/ for workspace rules
-
-      # Example windowrule
-      # windowrule = float,class:^(kitty)$,title:^(kitty)$
-
-      # Ignore maximize requests from apps. You'll probably like this.
+      # Window rules
       windowrule = suppressevent maximize, class:.*
 
       # Fix some dragging issues with XWayland
