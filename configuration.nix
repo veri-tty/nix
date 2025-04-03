@@ -88,6 +88,7 @@
       #jack.enable = true;
     };
   };
+  virtualisation.docker.enable = true;
 
   # Theme
   catppuccin = {
