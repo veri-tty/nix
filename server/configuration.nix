@@ -4,17 +4,6 @@
   inputs,
   ...
 }: {
-  # Boot configuration (for Hetzner)
-  boot = {
-    loader = {
-      grub = {
-        enable = true;
-        device = "/dev/sda"; # Adjust based on your Hetzner server
-        useOSProber = false;
-      };
-    };
-  };
-
   # Networking
   networking = {
     useDHCP = false; # Disable DHCP globally
@@ -22,16 +11,19 @@
       ens3 = {
         ipv4.addresses = [
           # Replace with your server's IP
-          { address = "0.0.0.0"; prefixLength = 24; }
+          {
+            address = "0.0.0.0";
+            prefixLength = 24;
+          }
         ];
       };
     };
     defaultGateway = "0.0.0.0"; # Replace with your gateway
-    nameservers = [ "1.1.1.1" "8.8.8.8" ];
+    nameservers = ["1.1.1.1" "8.8.8.8"];
     firewall = {
       enable = true;
       # Open ssh port
-      allowedTCPPorts = [ 22 ];
+      allowedTCPPorts = [22];
     };
   };
 
