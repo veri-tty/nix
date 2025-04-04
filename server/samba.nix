@@ -7,26 +7,28 @@
   services.samba = {
     enable = true;
     securityType = "user";
-    extraConfig = ''
-      workgroup = WORKGROUP
-      server string = Kerberos Server
-      netbios name = kerberos
-      security = user
-      
-      # Use sendfile
-      use sendfile = yes
-      
-      # Set directory mask to ensure proper permissions
-      directory mask = 0770
-      create mask = 0660
-      
-      # Disable printing services
-      load printers = no
-      printing = bsd
-      printcap name = /dev/null
-      disable spoolss = yes
-    '';
-    
+    settings = {
+      global = {
+        "workgroup" = "WORKGROUP";
+        "server string" = "Kerberos Server";
+        "netbios name" = "kerberos";
+        "security" = "user";
+
+        # Use sendfile
+        "use sendfile" = "yes";
+
+        # Set directory mask to ensure proper permissions
+        "directory mask" = "0770";
+        "create mask" = "0660";
+
+        # Disable printing services
+        "load printers" = "no";
+        "printing" = "bsd";
+        "printcap name" = "/dev/null";
+        "disable spoolss" = "yes";
+      };
+    };
+
     shares = {
       public = {
         path = "/mnt/storage/public";
@@ -36,7 +38,7 @@
         "create mask" = "0660";
         "directory mask" = "0770";
       };
-      
+
       private = {
         path = "/mnt/storage/private";
         browseable = "yes";
@@ -51,8 +53,8 @@
 
   # Open firewall ports for Samba
   networking.firewall = {
-    allowedTCPPorts = [ 139 445 ];
-    allowedUDPPorts = [ 137 138 ];
+    allowedTCPPorts = [139 445];
+    allowedUDPPorts = [137 138];
   };
 
   # Create storage directories
