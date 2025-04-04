@@ -37,11 +37,18 @@
   };
 
   fileSystems."/boot" = {
-    device = "/dev/sda1";
+    device = "/dev/disk/by-uuid/EF6E-2023";
     fsType = "vfat";
+    options = ["fmask=0077" "dmask=0077"];
   };
 
   swapDevices = [
     {device = "/dev/sda2";}
   ];
+  boot = {
+    loader = {
+      systemd-boot.enable = true;
+      efi.canTouchEfiVariables = true;
+    };
+  };
 }
