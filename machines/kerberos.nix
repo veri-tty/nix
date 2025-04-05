@@ -32,23 +32,13 @@
   # File systems
   # Update this section with your actual disk layout
   fileSystems."/" = {
-    device = "/dev/sda3";
+    device = "/dev/sda1";
     fsType = "ext4";
-  };
-
-  fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/EF6E-2023";
-    fsType = "vfat";
-    options = ["fmask=0077" "dmask=0077"];
   };
 
   swapDevices = [
     {device = "/dev/sda2";}
   ];
-  boot = {
-    loader = {
-      systemd-boot.enable = true;
-      efi.canTouchEfiVariables = true;
-    };
-  };
+  # Boot loader configuration for MBR
+  boot.loader.grub.device = "/dev/sda1";
 }

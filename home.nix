@@ -124,6 +124,8 @@
     ethtool
     pciutils # lspci
     usbutils # lsusb
+
+    bambu-studio # 3D printing slicer
   ];
 
   # Git configuration
