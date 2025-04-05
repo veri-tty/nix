@@ -32,12 +32,12 @@
   # File systems
   # Update this section with your actual disk layout
   fileSystems."/" = {
-    device = "/dev/sda1";
+    device = "/dev/disk/2b45afff-45c4-431f-b4ae-db2fb161b762";
     fsType = "ext4";
   };
 
   swapDevices = [
-    {device = "/dev/sda2";}
+    {device = "/dev/disk/byuuid/eb30b759e-ebfd-4d18-aaba-ed35e38428f5";}
   ];
   # Boot loader configuration for MBR
   boot.loader.grub.device = "/dev/sda";
