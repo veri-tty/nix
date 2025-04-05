@@ -6,25 +6,7 @@
 }: {
   # Networking
   networking = {
-    useDHCP = false; # Disable DHCP globally
-    interfaces = {
-      ens3 = {
-        ipv4.addresses = [
-          # Replace with your server's IP
-          {
-            address = "0.0.0.0";
-            prefixLength = 24;
-          }
-        ];
-      };
-    };
-    defaultGateway = "0.0.0.0"; # Replace with your gateway
-    nameservers = ["1.1.1.1" "8.8.8.8"];
-    firewall = {
-      enable = true;
-      # Open ssh port
-      allowedTCPPorts = [22];
-    };
+    hostName = "kerberos"; # Set the hostname
   };
 
   # Localization and time
@@ -61,7 +43,7 @@
     openssh = {
       enable = true;
       settings = {
-        PasswordAuthentication = false;
+        PasswordAuthentication = true;
         PermitRootLogin = "no";
       };
     };
@@ -87,8 +69,7 @@
     packages = with pkgs; [];
     shell = pkgs.fish;
     openssh.authorizedKeys.keys = [
-      # Add your SSH public key here
-      # "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIeUv..."
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOE9ceLKI4j5i1tNU/jvMST0vvbGrn6azbtFrrelokQd"
     ];
   };
 

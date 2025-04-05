@@ -28,17 +28,17 @@
   boot.initrd.kernelModules = [];
   boot.kernelModules = [];
   boot.extraModulePackages = [];
+  boot.loader.grub.enable = true;
+  boot.loader.grub.device = "/dev/sda";
 
   # File systems
   # Update this section with your actual disk layout
   fileSystems."/" = {
-    device = "/dev/disk/by-uuid/2b45afff-45c4-431f-b4ae-db2fb161b762";
+    device = "/dev/disk/by-uuid/f6c20247-7d54-4395-8cde-59566053f313";
     fsType = "ext4";
   };
 
   swapDevices = [
-    {device = "/dev/disk/by-uuid/eb30b759e-ebfd-4d18-aaba-ed35e38428f5";}
+    {device = "/dev/disk/by-uuid/0277dfc5-9252-4369-9885-62dd2acf86a1";}
   ];
-  # Boot loader configuration for MBR
-  boot.loader.grub.device = "/dev/sda";
 }
