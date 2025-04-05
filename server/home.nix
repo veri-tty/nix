@@ -15,12 +15,13 @@
     neofetch
     nnn # terminal file manager
     alejandra # nix formatter
-    
+
     # Development tools
     python3
     cachix
     docker-compose
-    
+    git
+
     # Archives and compression
     zip
     xz
@@ -28,7 +29,7 @@
     p7zip
     zstd
     gnutar
-    
+
     # File and text utilities
     ripgrep # recursively searches directories for a regex pattern
     jq # A lightweight and flexible command-line JSON processor
@@ -40,7 +41,7 @@
     tree
     gnused
     gawk
-    
+
     # Networking tools
     openvpn
     inetutils
@@ -52,13 +53,13 @@
     socat # replacement of openbsd-netcat
     nmap # A utility for network discovery and security auditing
     ipcalc # it is a calculator for the IPv4/v6 addresses
-    
+
     # Security tools
     gnupg
-    
+
     # Nix related
     nix-output-monitor # it provides the command `nom` works just like `nix` with more details log output
-    
+
     # System monitoring and debugging
     btop # replacement of htop/nmon
     iotop # io monitoring
@@ -72,14 +73,14 @@
     pciutils # lspci
     usbutils # lsusb
   ];
-  
+
   # Git configuration
   programs.git = {
     enable = true;
     userName = "veri-tty";
     userEmail = "verity@cock.li";
   };
-  
+
   # Shell prompt customization
   programs.starship = {
     enable = true;
@@ -90,7 +91,7 @@
       line_break.disabled = true;
     };
   };
-  
+
   # Bash shell configuration
   programs.bash = {
     enable = true;
@@ -98,12 +99,12 @@
     bashrcExtra = ''
       export PATH="$PATH:$HOME/bin:$HOME/.local/bin:$HOME/go/bin"
     '';
-    
+
     shellAliases = {
       nrs = "sudo nixos-rebuild switch --flake /home/ml/projects/flake#kerberos";
     };
   };
-  
+
   # Fish shell configuration
   programs.fish = {
     enable = true;
@@ -116,7 +117,7 @@
       set -U fish_greeting # Disable greeting
     '';
   };
-  
+
   # Let home Manager install and manage itself
   programs.home-manager.enable = true;
 }
