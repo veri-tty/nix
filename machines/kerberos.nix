@@ -40,5 +40,5 @@
     {device = "/dev/sda2";}
   ];
   # Boot loader configuration for MBR
-  boot.loader.grub.device = "/dev/sda1";
+  boot.loader.grub.device = "/dev/sda";
 }
