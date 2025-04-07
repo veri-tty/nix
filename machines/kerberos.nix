@@ -3,22 +3,64 @@
   pkgs,
   inputs,
   modulesPath,
+  lib,
   ...
 }: {
   imports = [
-    # Server base configuration
-    ../server/configuration.nix
-
-    # Server-specific modules
-    ../server/samba.nix
+    # Core modules
+    ../modules
     (modulesPath + "/profiles/qemu-guest.nix")
   ];
 
   # Hostname
   networking.hostName = "kerberos";
 
-  # Define home-manager configuration
-  home-manager.users.ml = import ../server/home.nix;
+  # Module configuration - Server profile
+  hyprland.enable = false;
+  floorp.enable = false;
+  shell.enable = true;
+  docker.enable = true;
+  networkmanager.enable = true;
+  tailscale.enable = true;
+  mullvad.enable = false;
+  nvidia.enable = false;
+  syncthing.enable = true;
+  samba.enable = true;
+  pentesting.enable = false;
+
+  # Terminal configurations - minimal for server
+  terminal = {
+    enable = true;
+    alacritty.enable = false;
+    starship.enable = true;
+  };
+
+  # Development tools - server focus
+  development = {
+    enable = true;
+    git.enable = true;
+    vscode.enable = false;
+    nodejs.enable = true;
+    python.enable = true;
+  };
+
+  # Utility tools
+  utilities = {
+    enable = true;
+    compression.enable = true;
+    text.enable = true;
+    system.enable = true;
+    nix.enable = true;
+  };
+
+  # Desktop applications - disabled for server
+  applications = {
+    enable = false;
+    office.enable = false;
+    media.enable = false;
+    crypto.enable = false;
+    printing.enable = false;
+  };
 
   # Add any kerberos-specific configuration here
 

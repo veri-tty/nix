@@ -3,12 +3,64 @@
   lib,
   pkgs,
   modulesPath,
+  inputs,
   ...
 }: {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
+    ../modules
   ];
+
+  # Machine identification
   networking.hostName = "fitz";
+
+  # Module configuration
+  hyprland.enable = true;
+  floorp.enable = true;
+  shell.enable = true;
+  docker.enable = true;
+  networkmanager.enable = true;
+  tailscale.enable = true;
+  mullvad.enable = true;
+  locale.enable = true;
+  nvidia.enable = true;
+  syncthing.enable = true;
+  samba.enable = false;
+  pentesting.enable = true;
+
+  # Terminal configurations
+  terminal = {
+    enable = true;
+    alacritty.enable = true;
+    starship.enable = true;
+  };
+
+  # Development tools
+  development = {
+    enable = true;
+    git.enable = true;
+    vscode.enable = true;
+    nodejs.enable = true;
+    python.enable = true;
+  };
+
+  # Utility tools
+  utilities = {
+    enable = true;
+    compression.enable = true;
+    text.enable = true;
+    system.enable = true;
+    nix.enable = true;
+  };
+
+  # Desktop applications
+  applications = {
+    enable = true;
+    office.enable = true;
+    media.enable = true;
+    crypto.enable = true;
+    printing.enable = true;
+  };
 
   boot.initrd.availableKernelModules = ["nvme" "xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod"];
   boot.initrd.kernelModules = [];
@@ -40,6 +92,10 @@
   networking.useDHCP = lib.mkDefault true;
   # networking.interfaces.enp34s0.useDHCP = lib.mkDefault true;
   # networking.interfaces.enp3s0f0u1u1c2.useDHCP = lib.mkDefault true;
+
+  # Boot loader
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;

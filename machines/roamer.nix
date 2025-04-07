@@ -3,12 +3,64 @@
   lib,
   pkgs,
   modulesPath,
+  inputs,
   ...
 }: {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
+    ../modules
   ];
+
+  # Machine identification
   networking.hostName = "roamer";
+
+  # Module configuration
+  hyprland.enable = true;
+  floorp.enable = true;
+  shell.enable = true;
+  docker.enable = false;
+  networkmanager.enable = true;
+  tailscale.enable = false;
+  mullvad.enable = true;
+  locale.enable = true;
+  nvidia.enable = false;
+  syncthing.enable = true;
+  samba.enable = false;
+  pentesting.enable = true;
+
+  # Terminal configurations
+  terminal = {
+    enable = true;
+    alacritty.enable = true;
+    starship.enable = true;
+  };
+
+  # Development tools
+  development = {
+    enable = true;
+    git.enable = true;
+    vscode.enable = true;
+    nodejs.enable = true;
+    python.enable = true;
+  };
+
+  # Utility tools
+  utilities = {
+    enable = true;
+    compression.enable = true;
+    text.enable = true;
+    system.enable = true;
+    nix.enable = true;
+  };
+
+  # Desktop applications
+  applications = {
+    enable = true;
+    office.enable = true;
+    media.enable = true;
+    crypto.enable = false;
+    printing.enable = false;
+  };
 
   boot.initrd.availableKernelModules = ["xhci_pci" "nvme" "usb_storage" "sd_mod"];
   boot.initrd.kernelModules = [];
@@ -53,14 +105,4 @@
   };
 
   swapDevices = [];
-
-  # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
-  # (the default) this is the recommended approach. When using systemd-networkd it's
-  # still possible to use this option, but it's recommended to use it in conjunction
-  # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
-  networking.useDHCP = lib.mkDefault true;
-  # networking.interfaces.wlp0s20f3.useDHCP = lib.mkDefault true;
-
-  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-  hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }

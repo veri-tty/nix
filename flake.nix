@@ -5,6 +5,7 @@
   inputs = {
     # Core
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     # Home Manager
     home-manager = {
@@ -29,85 +30,57 @@
   outputs = {
     self,
     nixpkgs,
+    nixos-hardware,
     home-manager,
     mic92,
     rycee,
     catppuccin,
     claude-code-nix,
     ...
-  } @ inputs: {
-    # Define NixOS configurations for different machines
+  } @ inputs: let
+    supportedSystems = ["x86_64-linux"];
+    forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
+    specialArgs = {inherit inputs;}; # pass the inputs into the configuration module
+    
+    # Define a helper function to create machine configs
+    mkMachine = {system, modules ? []}: 
+      nixpkgs.lib.nixosSystem {
+        inherit system specialArgs;
+        modules = [
+          ./modules  # Import all modules
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.extraSpecialArgs = specialArgs;
+          }
+        ] ++ modules;
+      };
+      
+  in rec {
+    ## System configurations
     nixosConfigurations = {
-      # Desktop configuration
-      fitz = nixpkgs.lib.nixosSystem {
-        specialArgs = {
-          inherit inputs;
-        };
+      roamer = mkMachine {
         system = "x86_64-linux";
-        modules = [
-          # Base modules
-          ./configuration.nix
-          ./machines/fitz.nix
-
-          # Home manager integration
-          home-manager.nixosModules.home-manager
-
-          # Theme
-          catppuccin.nixosModules.catppuccin
-
-          # Home manager configuration
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.extraSpecialArgs = {inherit inputs;};
-            home-manager.users.ml = import ./home.nix;
-          }
-        ];
+        modules = [ ./machines/roamer.nix ];
       };
-
-      # Laptop configuration
-      roamer = nixpkgs.lib.nixosSystem {
-        specialArgs = {
-          inherit inputs;
-        };
+      
+      fitz = mkMachine {
         system = "x86_64-linux";
-        modules = [
-          # Base modules
-          ./configuration.nix
-          ./machines/roamer.nix
-
-          # Home manager integration
-          home-manager.nixosModules.home-manager
-
-          # Home manager configuration
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.extraSpecialArgs = {inherit inputs;};
-            home-manager.users.ml = import ./home.nix;
-          }
-        ];
+        modules = [ ./machines/fitz.nix ];
       };
-      # Remote-Server configuration
-      kerberos = nixpkgs.lib.nixosSystem {
-        specialArgs = {
-          inherit inputs;
-        };
+      
+      kerberos = mkMachine {
         system = "x86_64-linux";
-        modules = [
-          ./machines/kerberos.nix
-
-          # Home manager integration
-          home-manager.nixosModules.home-manager
-
-          # Home manager configuration
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.extraSpecialArgs = {inherit inputs;};
-          }
-        ];
+        modules = [ ./machines/kerberos.nix ];
       };
+    };
+
+    ## Home configurations
+    homeConfigurations = {
+      roamer = nixosConfigurations.roamer.config.home-manager.users.ml.home;
+      fitz = nixosConfigurations.fitz.config.home-manager.users.ml.home;
+      kerberos = nixosConfigurations.kerberos.config.home-manager.users.ml.home;
     };
   };
 }
