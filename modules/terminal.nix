@@ -27,7 +27,7 @@
 
   config = {
     # Terminal emulator configuration
-    home-manager.users.ml.programs.alacritty = lib.mkIf (config.terminal.enable && config.terminal.alacritty.enable) {
+    home-manager.users.ml.programs.alacritty = lib.mkIf config.terminal.alacritty.enable {
       enable = true;
       settings = {
         env.TERM = "xterm-256color";

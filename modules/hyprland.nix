@@ -50,7 +50,7 @@
             ################
 
             # See https://wiki.hyprland.org/Configuring/Monitors/
-            monitor = DP-1, 2560x1440@144, 0x0, 1.3
+            monitor = DP-1, 2560x1440@144, 0x0, 1.333333
             xwayland {
               force_zero_scaling = true
             }

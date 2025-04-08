@@ -27,6 +27,7 @@
   syncthing.enable = true;
   samba.enable = true;
   pentesting.enable = false;
+  ssh.enable = true;
 
   # Terminal configurations - minimal for server
   terminal = {

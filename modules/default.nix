@@ -18,5 +18,6 @@
     ./development.nix
     ./utilities.nix
     ./applications.nix
+    ./ssh.nix
   ];
 }

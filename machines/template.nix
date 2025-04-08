@@ -26,7 +26,6 @@
   networkmanager.enable = true; # NetworkManager
   tailscale.enable = false; # Tailscale VPN
   mullvad.enable = false; # Mullvad VPN
-  locale.enable = true; # Locale settings
   nvidia.enable = false; # NVIDIA drivers
   syncthing.enable = false; # Syncthing file sync
   samba.enable = false; # Samba file sharing

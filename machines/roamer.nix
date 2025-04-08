@@ -22,7 +22,6 @@
   networkmanager.enable = true;
   tailscale.enable = false;
   mullvad.enable = true;
-  locale.enable = true;
   nvidia.enable = false;
   syncthing.enable = true;
   samba.enable = false;
