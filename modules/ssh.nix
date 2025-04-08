@@ -15,8 +15,8 @@
   config = lib.mkIf config.ssh.enable {
     # Enable OpenSSH server
     services.openssh.enable = true;
-    # Allow root login
-    services.openssh.permitRootLogin = false;
+    # disallow root login
+    services.openssh.permitRootLogin = "no";
     # Allow password authentication
     services.openssh.passwordAuthentication = false;
     # Allow public key authentication
