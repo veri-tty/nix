@@ -28,6 +28,7 @@
   samba.enable = true;
   pentesting.enable = false;
   ssh.enable = true;
+  wallpaper = "/home/ml/pics/wall/wallhaven-jx632y.jpg";
 
   # Terminal configurations - minimal for server
   terminal = {

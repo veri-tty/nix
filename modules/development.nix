@@ -35,6 +35,12 @@
           default = false;
         };
       };
+      zed = {
+        enable = lib.mkEnableOption {
+          description = "Enable Zed IDE";
+          default = false;
+        };
+      };
     };
   };
 
@@ -46,19 +52,27 @@
       userEmail = "verity@cock.li";
     };
 
+    home-manager.users.ml.programs.zed-editor = lib.mkIf config.development.zed.enable {
+      enable = true;
+      extensions = [
+        "nix"
+        "catppuccin-blur-plus"
+      ];
+    };
+
     # Development tools
     home-manager.users.ml.home.packages = lib.mkIf config.development.enable (
       (lib.optionals config.development.vscode.enable [
         pkgs.vscode
-      ]) ++
-      (lib.optionals config.development.nodejs.enable [
+      ])
+      ++ (lib.optionals config.development.nodejs.enable [
         pkgs.nodejs_23
         pkgs.node2nix
-      ]) ++
-      (lib.optionals config.development.python.enable [
+      ])
+      ++ (lib.optionals config.development.python.enable [
         pkgs.python3
-      ]) ++
-      [
+      ])
+      ++ [
         # General development tools
         pkgs.cachix
         pkgs.alejandra # nix formatter

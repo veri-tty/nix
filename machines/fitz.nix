@@ -26,6 +26,7 @@
   syncthing.enable = true;
   samba.enable = false;
   pentesting.enable = true;
+  wallpaper = "/home/ml/pics/wall/wallhaven-jx632y.jpg";
 
   # Terminal configurations
   terminal = {
@@ -41,6 +42,7 @@
     vscode.enable = true;
     nodejs.enable = true;
     python.enable = true;
+    zed.enable = true;
   };
 
   # Utility tools

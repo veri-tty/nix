@@ -17,7 +17,7 @@
     hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.beta;
     services.xserver.videoDrivers = ["nvidia"]; # will install nvidia-vaapi-driver by default
     hardware.nvidia = {
-      open = false;
+      open = true;
       # required by most wayland compositors!
       modesetting.enable = true;
       powerManagement.enable = true;

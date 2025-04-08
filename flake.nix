@@ -7,6 +7,8 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
+    schizofox.url = "github:schizofox/schizofox";
+
     # Home Manager
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -41,38 +43,42 @@
     supportedSystems = ["x86_64-linux"];
     forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
     specialArgs = {inherit inputs;}; # pass the inputs into the configuration module
-    
+
     # Define a helper function to create machine configs
-    mkMachine = {system, modules ? []}: 
+    mkMachine = {
+      system,
+      modules ? [],
+    }:
       nixpkgs.lib.nixosSystem {
         inherit system specialArgs;
-        modules = [
-          ./modules  # Import all modules
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.extraSpecialArgs = specialArgs;
-          }
-        ] ++ modules;
+        modules =
+          [
+            ./modules # Import all modules
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.extraSpecialArgs = specialArgs;
+            }
+          ]
+          ++ modules;
       };
-      
   in rec {
     ## System configurations
     nixosConfigurations = {
       roamer = mkMachine {
         system = "x86_64-linux";
-        modules = [ ./machines/roamer.nix ];
+        modules = [./machines/roamer.nix];
       };
-      
+
       fitz = mkMachine {
         system = "x86_64-linux";
-        modules = [ ./machines/fitz.nix ];
+        modules = [./machines/fitz.nix];
       };
-      
+
       kerberos = mkMachine {
         system = "x86_64-linux";
-        modules = [ ./machines/kerberos.nix ];
+        modules = [./machines/kerberos.nix];
       };
     };
 

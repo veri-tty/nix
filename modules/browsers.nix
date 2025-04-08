@@ -12,6 +12,12 @@
         default = false;
       };
     };
+    schizofox = {
+      enable = lib.mkEnableOption {
+        description = "Enable the schizo browser";
+        default = false;
+      };
+    };
   };
   config = lib.mkIf config.floorp.enable {
     home-manager.users.ml.programs.floorp = {
@@ -34,6 +40,18 @@
           name = "velor";
           isDefault = false;
           path = "velor.default";
+          extensions.packages = with inputs.rycee.packages.x86_64-linux; [
+            bitwarden
+            ublock-origin
+            privacy-badger
+            linkwarden
+          ];
+        };
+        lost = {
+          id = 2;
+          name = "lost";
+          isDefault = false;
+          path = "lost.default";
           extensions.packages = with inputs.rycee.packages.x86_64-linux; [
             bitwarden
             ublock-origin
