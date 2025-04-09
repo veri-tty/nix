@@ -34,6 +34,19 @@
 
     programs.hyprland.enable = true;
 
+    # Enable display manager to auto-start Hyprland
+    services.displayManager = {
+      defaultSession = "hyprland";
+      sddm = {
+        enable = true;
+        settings.Autologin = {
+          Session = "hyprland";
+          User = "ml";
+        };
+      };
+    };
+    services.displayManager.sddm.wayland.enable = true;
+
     home-manager.users.ml = {
       wayland.windowManager.hyprland = {
         enable = true;
@@ -186,7 +199,6 @@
 
 
           # Start waybar with a small delay to ensure display is ready
-          exec-once = sleep 1 && waybar
           exec-once = hyprlock
 
           ###################
@@ -472,16 +484,11 @@
                       image {
               monitor =
               path = ${config.wallpaper}
-              size = 100% 100%
+              size = cover
               rounding = 0
               blur_size = 0
               blur_passes = 0
               brightness = 1.0
-
-              # Center the image and make it fill the entire screen
-              position = 0, 0
-              halign = center
-              valign = center
           }
                       input-field {
                           monitor =

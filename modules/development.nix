@@ -2,44 +2,25 @@
   config,
   lib,
   pkgs,
-  inputs,
   ...
 }: {
   options = {
     development = {
-      enable = lib.mkEnableOption {
-        description = "Enable development tools";
-        default = false;
-      };
+      enable = lib.mkEnableOption "Enable development tools";
       vscode = {
-        enable = lib.mkEnableOption {
-          description = "Enable Visual Studio Code";
-          default = false;
-        };
+        enable = lib.mkEnableOption "Enable Visual Studio Code";
       };
       git = {
-        enable = lib.mkEnableOption {
-          description = "Enable Git configuration";
-          default = false;
-        };
+        enable = lib.mkEnableOption "Enable Git configuration";
       };
       nodejs = {
-        enable = lib.mkEnableOption {
-          description = "Enable Node.js development tools";
-          default = false;
-        };
+        enable = lib.mkEnableOption "Enable Node.js development tools";
       };
       python = {
-        enable = lib.mkEnableOption {
-          description = "Enable Python development tools";
-          default = false;
-        };
+        enable = lib.mkEnableOption "Enable Python development tools";
       };
       zed = {
-        enable = lib.mkEnableOption {
-          description = "Enable Zed IDE";
-          default = false;
-        };
+        enable = lib.mkEnableOption "Enable Zed IDE";
       };
     };
   };
@@ -53,11 +34,7 @@
     };
 
     home-manager.users.ml.programs.zed-editor = lib.mkIf config.development.zed.enable {
-      enable = true;
-      extensions = [
-        "nix"
-        "catppuccin-blur-plus"
-      ];
+              enable = true;
     };
 
     # Development tools
@@ -76,6 +53,7 @@
         # General development tools
         pkgs.cachix
         pkgs.alejandra # nix formatter
+
       ]
     );
   };

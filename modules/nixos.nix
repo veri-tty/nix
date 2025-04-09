@@ -21,6 +21,9 @@
     description = "ml";
     extraGroups = ["wheel" "docker"];
   };
+  environment.systemPackages = with pkgs; [
+    nil
+  ];
 
   home-manager.users.ml.home.stateVersion = "24.11";
   system.stateVersion = "24.11";
