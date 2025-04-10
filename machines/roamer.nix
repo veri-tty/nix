@@ -20,12 +20,14 @@
   shell.enable = true;
   docker.enable = false;
   networkmanager.enable = true;
-  tailscale.enable = false;
+  tailscale.enable = true;
   mullvad.enable = true;
   nvidia.enable = false;
   syncthing.enable = true;
   samba.enable = false;
   pentesting.enable = true;
+  wallpaper = "/home/ml/pics/wall/wallhaven-qzyyxd.png";
+  display = "eDP-1";
 
   # Terminal configurations
   terminal = {
@@ -41,6 +43,7 @@
     vscode.enable = true;
     nodejs.enable = true;
     python.enable = true;
+    zed.enable = true;
   };
 
   # Utility tools
@@ -55,10 +58,6 @@
   # Desktop applications
   applications = {
     enable = true;
-    office.enable = true;
-    media.enable = true;
-    crypto.enable = false;
-    printing.enable = false;
   };
 
   boot.initrd.availableKernelModules = ["xhci_pci" "nvme" "usb_storage" "sd_mod"];
@@ -91,14 +90,15 @@
   ];
 
   fileSystems."/" = {
-    device = "/dev/disk/by-uuid/2448b62d-fba4-4bcd-ac71-70d7284e5141";
+    device = "/dev/disk/by-uuid/d4a78e89-46b3-45de-8802-bb2e66970012";
     fsType = "ext4";
   };
 
-  boot.initrd.luks.devices."crypt".device = "/dev/nvme0n1p2";
+  boot.initrd.luks.devices."crypt".device = "/dev/disk/by-uuid/edfeda0f-fc4d-4582-b9d5-5b00fa538f64";
+  boot.loader.systemd-boot.enable = true;
 
   fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/8EFB-4D8F";
+    device = "/dev/disk/by-uuid/E778-08F8";
     fsType = "vfat";
     options = ["fmask=0022" "dmask=0022"];
   };
