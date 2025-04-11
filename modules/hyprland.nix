@@ -6,15 +6,17 @@
 }: {
   options = {
     hyprland = {
-      enable = lib.mkEnableOption {
-        description = "Enable Hyprland";
-        default = false;
-      };
+      enable = lib.mkEnableOption "Enable Hyprland";
     };
     wallpaper = lib.mkOption {
       type = lib.types.str;
       description = "Path to wallpaper";
       default = "/home/ml/Pictures/wallpaper.jpg";
+    };
+    display = lib.mkOption {
+      type = lib.types.str;
+      description = "Display Name";
+      default = "DP-1";
     };
   };
 
@@ -581,7 +583,7 @@
           splash_offset = 2.0;
           preload = ["${config.wallpaper}"];
           wallpaper = [
-            "DP-1,${config.wallpaper}"
+            "${config.display},${config.wallpaper}"
           ];
         };
       };

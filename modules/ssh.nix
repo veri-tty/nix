@@ -23,6 +23,7 @@
     users.users.ml.openssh.authorizedKeys.keys = [
       # Add your public key here
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOE9ceLKI4j5i1tNU/jvMST0vvbGrn6azbtFrrelokQd ml@fitz"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIC/U51AA+viYJACfTPeHN/P7Prl7iqOuigtPxNvCgzX/ ml@roamer"
     ];
   };
 }
