@@ -201,6 +201,12 @@
           # Start waybar with a small delay to ensure display is ready
           exec-once = hyprlock
 
+          # Auto-start applications in their assigned workspaces
+          exec-once = alacritty
+          exec-once = floorp
+          exec-once = zed
+          exec-once = spotify
+
           ###################
           ### MY PROGRAMS ###
           ###################
@@ -462,6 +468,12 @@
 
           # Fix some dragging issues with XWayland
           windowrulev2 = nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0
+
+          # Assign applications to specific workspaces
+          windowrulev2 = workspace 1,class:^(Alacritty)$
+          windowrulev2 = workspace 3,class:^(floorp)$
+          windowrulev2 = workspace 2,class:^(zed)$
+          windowrulev2 = workspace 4,class:^(Spotify)$,title:^(Spotify)$
         '';
       };
 

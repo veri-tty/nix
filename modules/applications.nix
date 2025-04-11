@@ -25,6 +25,13 @@
       pkgs.element-desktop
       # Remote desktop
       pkgs.remmina # rdp client
+      pkgs.discord
+      pkgs.motrix
+      pkgs.qbittorrent
+      pkgs.vlc
+      pkgs.bottles
+      pkgs.lutris
+      pkgs.wineWowPackages.waylandFull
     ];
   };
 }
