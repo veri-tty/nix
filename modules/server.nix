@@ -24,6 +24,6 @@
     services.vaultwarden = lib.mkIf config.server.vaultwarden.enable {
       enable = true;
     };
-    bitwarden-directory-connector-cli.domain = lib.mkIf config.server.vaultwarden.enable "vault.lunau.xyz";
+    services.bitwarden-directory-connector-cli.domain = lib.mkIf config.server.vaultwarden.enable "vault.lunau.xyz";
   };
 }
