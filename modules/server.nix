@@ -5,11 +5,13 @@
   ...
 }: {
   options = {
-    hyprland = {
-      enable = lib.mkEnableOption "Enable Hyprland";
-    };
-    hyprland = {
-      enable = lib.mkEnableOption "Enable Hyprland";
+    server = {
+      immich = {
+        enable = lib.mkEnableOption "Enable baremetal immich via nixpkgs";
+      };
+      vaultwarden = {
+        enable = lib.mkEnableOption "Enable vaultwarden via nixpkgs";
+      };
     };
   };
   config = {
