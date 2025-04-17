@@ -57,15 +57,11 @@
   server = {
     immich.enable = true;
     vaultwarden.enable = true;
-  }
+  };
 
   # Desktop applications - disabled for server
   applications = {
     enable = false;
-    office.enable = false;
-    media.enable = false;
-    crypto.enable = false;
-    printing.enable = false;
   };
 
   # Add any kerberos-specific configuration here
