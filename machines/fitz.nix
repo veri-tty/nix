@@ -52,6 +52,7 @@
     text.enable = true;
     system.enable = true;
     nix.enable = true;
+    server.enable = true;
   };
 
   # Desktop applications
@@ -65,21 +66,20 @@
   boot.extraModulePackages = [];
 
   fileSystems."/" = {
-    device = "/dev/disk/by-uuid/ad546470-e4bd-443f-b243-2d30bf001005";
+    device = "/dev/disk/by-uuid/8e3621d5-f4e8-41d9-8647-a8cff8e2d1eb";
     fsType = "ext4";
   };
 
-  boot.initrd.luks.devices."luks-24f96f23-bc4c-4c57-8b22-265c3ce50c22".device = "/dev/disk/by-uuid/24f96f23-bc4c-4c57-8b22-265c3ce50c22";
-  boot.initrd.luks.devices."luks-65d679f5-952e-4289-85e2-1d947410a095".device = "/dev/disk/by-uuid/65d679f5-952e-4289-85e2-1d947410a095";
+  boot.initrd.luks.devices."luks-8e1273aa-baec-406b-9820-4c33e93fe69f".device = "/dev/disk/by-uuid/8e1273aa-baec-406b-9820-4c33e93fe69f";
 
   fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/7C44-BC68";
+    device = "/dev/disk/by-uuid/2380-E5D4";
     fsType = "vfat";
     options = ["fmask=0077" "dmask=0077"];
   };
 
   swapDevices = [
-    {device = "/dev/disk/by-uuid/bbdea9bb-0219-4aeb-b6f5-ae8ad7bf9d53";}
+    {device = "/dev/disk/by-uuid/64d36f20-2d6a-467f-9215-f41c9d035d45";}
   ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking

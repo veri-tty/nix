@@ -206,7 +206,7 @@
           # Auto-start applications in their assigned workspaces
           exec-once = alacritty
           exec-once = floorp
-          exec-once = zed
+          exec-once = zedidor
           exec-once = spotify
 
           ###################

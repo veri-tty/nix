@@ -34,6 +34,12 @@
           default = false;
         };
       };
+      server = {
+        enable = lib.mkEnableOption {
+          description = "Enable soem tools i use to interact with my servers";
+          default = false;
+        };
+      };
     };
   };
 
@@ -81,6 +87,10 @@
       (lib.optionals config.utilities.nix.enable [
         # Nix related
         pkgs.nix-output-monitor # it provides the command `nom` works just like `nix` with more details log output
+      ])++
+      (lib.optionals config.utilities.server.enable [
+      pkgs.immich-go
+      pkgs.wget
       ])
     );
   };
