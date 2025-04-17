@@ -29,8 +29,8 @@
     };
     services.bitwarden-directory-connector-cli.domain = lib.mkIf config.server.vaultwarden.enable "vault.lunau.xyz";
 
-    services.baikal = lib.mkIf config.server.caldav.enable {
-      enable = true;
-    };
+    #services.baikal = lib.mkIf config.server.caldav.enable {
+     # enable = true;
+     #};
   };
 }
