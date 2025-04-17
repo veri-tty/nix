@@ -12,6 +12,9 @@
       vaultwarden = {
         enable = lib.mkEnableOption "Enable vaultwarden via nixpkgs";
       };
+      caldav = {
+        enable = lib.mkEnableOption "Enable baikal caldav via nixpkgs";
+      };
     };
   };
   config = {
@@ -25,5 +28,9 @@
       enable = true;
     };
     services.bitwarden-directory-connector-cli.domain = lib.mkIf config.server.vaultwarden.enable "vault.lunau.xyz";
+
+    services.baikal = lib.mkIf config.server.caldav.enable {
+      enable = true;
+    };
   };
 }
