@@ -54,6 +54,10 @@
     system.enable = true;
     nix.enable = true;
   };
+  server = {
+    immich.enable = true;
+    vaultwarden.enable = true;
+  }
 
   # Desktop applications - disabled for server
   applications = {
