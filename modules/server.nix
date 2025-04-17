@@ -5,18 +5,11 @@
   ...
 }: {
   options = {
-    server = {
-      immich = {
-        enable = lib.mkEnableOption "Immich Backend via Baremetal Nixpkgs deployment";
-        default = false;
-
-      };
+    hyprland = {
+      enable = lib.mkEnableOption "Enable Hyprland";
     };
-    server = {
-      immich = {
-        enable = lib.mkEnableOption "Vaultwarden Backend for Bitwarden via Baremetal Nixpkgs deployment";
-        default = false;
-      };
+    hyprland = {
+      enable = lib.mkEnableOption "Enable Hyprland";
     };
   };
   config = {
