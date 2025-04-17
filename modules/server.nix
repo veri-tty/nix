@@ -7,15 +7,13 @@
   options = {
     server = {
       immich = {
-        enable = lib.mkEnableOption "Immich Backend via Baremetal Nixpkgs deployment";
-        default = false;
-
+        enable = lib.mkEnableOption "Enable baremetal immich via nixpkgs";
       };
-    };
-    server = {
-      immich = {
-        enable = lib.mkEnableOption "Vaultwarden Backend for Bitwarden via Baremetal Nixpkgs deployment";
-        default = false;
+      vaultwarden = {
+        enable = lib.mkEnableOption "Enable vaultwarden via nixpkgs";
+      };
+      caldav = {
+        enable = lib.mkEnableOption "Enable baikal caldav via nixpkgs";
       };
     };
   };
@@ -28,7 +26,11 @@
     };
     services.vaultwarden = lib.mkIf config.server.vaultwarden.enable {
       enable = true;
-      bitwarden-directory-connector-cli.domain = "vault.lunau.xyz";
-    }
+    };
+    services.bitwarden-directory-connector-cli.domain = lib.mkIf config.server.vaultwarden.enable "vault.lunau.xyz";
+
+    #services.baikal = lib.mkIf config.server.caldav.enable {
+     # enable = true;
+     #};
   };
 }
