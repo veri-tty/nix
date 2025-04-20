@@ -58,6 +58,7 @@
     immich.enable = true;
     vaultwarden.enable = true;
     traefik.enable = true;
+    baikal.enable = true;
   };
 
   # Desktop applications - disabled for server
