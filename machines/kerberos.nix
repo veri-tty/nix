@@ -58,7 +58,6 @@
     immich.enable = true;
     vaultwarden.enable = true;
     proxy.enable = true;
-    caldav.enable = true;
   };
 
   # Desktop applications - disabled for server
