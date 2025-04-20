@@ -26,7 +26,6 @@
     };
     rycee.url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
     mic92.url = "github:Mic92/nur-packages";
-    claude-code-nix.url = "path:./pkgs/claude-code";
   };
 
   outputs = {
@@ -37,7 +36,6 @@
     mic92,
     rycee,
     catppuccin,
-    claude-code-nix,
     ...
   } @ inputs: let
     supportedSystems = ["x86_64-linux"];

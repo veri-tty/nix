@@ -24,8 +24,6 @@
     services.immich = lib.mkIf config.server.immich.enable {
       enable = true;
       settings = "";
-      database.user = "ml";
-      database.name = "immich";
     };
     services.vaultwarden = lib.mkIf config.server.vaultwarden.enable {
       enable = true;
@@ -36,8 +34,8 @@
       enable = true;
     };
 
-    services.baikal = lib.mkIf config.server.caldav.enable {
-      enable = true;
-    };
+    # services.baikal = lib.mkIf config.server.caldav.enable {
+    #   enable = true;
+    # };
   };
 }
