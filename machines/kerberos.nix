@@ -57,7 +57,18 @@
   server = {
     immich.enable = true;
     vaultwarden.enable = true;
-    proxy.enable = true;
+    proxy = {
+      enable = true;
+      domain = "lunau.xyz";
+    };
+    dockge = {
+      enable = true;
+      port = 5001;
+    };
+    karakeep = {
+      enable = true;
+      port = 3000;
+    };
   };
 
   # Desktop applications - disabled for server
