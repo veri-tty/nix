@@ -23,7 +23,6 @@
   config = {
     services.immich = lib.mkIf config.server.immich.enable {
       enable = true;
-      settings = "";
     };
     services.vaultwarden = lib.mkIf config.server.vaultwarden.enable {
       enable = true;
