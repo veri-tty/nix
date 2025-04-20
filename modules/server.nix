@@ -31,10 +31,33 @@
 
     services.traefik = lib.mkIf config.server.traefik.enable {
       enable = true;
+      staticConfigOptions = {
+        log = {
+          level = "WARN";
+        };
+        api = {}; # enable API handler
+        entryPoints = {
+          web = {
+            address = ":80";
+            http.redirections.entryPoint = {
+              to = "websecure";
+              scheme = "https";
+            };
+          };
+          websecure = {
+            address = ":443";
+          };
+        };
+      };
     };
+    systemd.services.traefik.serviceConfig = lib.mkIf config.server.traefik.enable {
+      EnvironmentFile = ["/var/lib/traefik/env"];
+    };
+    networking.firewall.allowedTCPPorts = lib.mkIf config.server.traefik.enable [80 443];
 
-    # services.baikal = lib.mkIf config.server.caldav.enable {
-    #   enable = true;
-    # };
+
+    services.baikal = lib.mkIf config.server.caldav.enable {
+      enable = true;
+    };
   };
 }
