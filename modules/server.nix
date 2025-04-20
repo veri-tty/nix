@@ -12,9 +12,6 @@
       vaultwarden = {
         enable = lib.mkEnableOption "Enable vaultwarden via nixpkgs";
       };
-      caldav = {
-        enable = lib.mkEnableOption "Enable baikal caldav via nixpkgs";
-      };
       proxy = {
         enable = lib.mkEnableOption "Enable traefik reverse proxy via nixpkgs";
       };
@@ -37,10 +34,5 @@
       };
 
     networking.firewall.allowedTCPPorts = lib.mkIf config.server.proxy.enable [80 443];
-
-
-    services.baikal = lib.mkIf config.server.caldav.enable {
-      enable = true;
-    };
   };
 }
