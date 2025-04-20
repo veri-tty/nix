@@ -57,7 +57,7 @@
   server = {
     immich.enable = true;
     vaultwarden.enable = true;
-    traefik.enable = true;
+    proxy.enable = true;
     caldav.enable = true;
   };
 
