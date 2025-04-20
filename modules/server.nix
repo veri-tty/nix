@@ -26,12 +26,7 @@
     };
     services.bitwarden-directory-connector-cli.domain = lib.mkIf config.server.vaultwarden.enable "vault.lunau.xyz";
 
-    services.caddy = lib.mkIf config.server.proxy.enable {
-        enable = true;
-        virtualHosts."localhost".extraConfig = ''
-          respond "OK"
-        '';
-      };
+    services.nginx.enable = lib.mkIf config.server.proxy.enable true;
 
     networking.firewall.allowedTCPPorts = lib.mkIf config.server.proxy.enable [80 443];
   };
