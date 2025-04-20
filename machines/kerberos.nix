@@ -57,6 +57,7 @@
   server = {
     immich.enable = true;
     vaultwarden.enable = true;
+    traefik.enable = true;
   };
 
   # Desktop applications - disabled for server

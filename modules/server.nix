@@ -15,6 +15,9 @@
       caldav = {
         enable = lib.mkEnableOption "Enable baikal caldav via nixpkgs";
       };
+      traefik = {
+        enable = lib.mkEnableOption "Enable traefik reverse proxy via nixpkgs";
+      };
     };
   };
   config = {
@@ -29,8 +32,12 @@
     };
     services.bitwarden-directory-connector-cli.domain = lib.mkIf config.server.vaultwarden.enable "vault.lunau.xyz";
 
-    #services.baikal = lib.mkIf config.server.caldav.enable {
-     # enable = true;
-     #};
+    services.traefik = lib.mkIf config.server.traefik.enable {
+      enable = true;
+    };
+
+    services.baikal = lib.mkIf config.server.caldav.enable {
+      enable = true;
+    };
   };
 }
