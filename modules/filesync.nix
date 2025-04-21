@@ -36,6 +36,7 @@
       user = "ml";
       dataDir = "/home/ml"; # default location for new folders
       configDir = "/home/ml/.config/syncthing";
+      guiAddress = "127.0.0.1:8384";
     };
   };
 }
