@@ -26,11 +26,11 @@
       docker-compose
       compose2nix
     ];
-  };
   environment = lib.mkIf config.qemu.enable {
       systemPackages = [
         pkgs.qemu
         pkgs.quickemu
       ];
     };
+  };
 }
