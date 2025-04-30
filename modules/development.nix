@@ -53,6 +53,7 @@
         # General development tools
         pkgs.cachix
         pkgs.alejandra # nix formatter
+        pkgs.nixd
 
       ]
     );

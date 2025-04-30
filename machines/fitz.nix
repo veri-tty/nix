@@ -17,6 +17,7 @@
   # Module configuration
   hyprland.enable = true;
   floorp.enable = true;
+  schizofox.enable = true;
   shell.enable = true;
   docker.enable = true;
   networkmanager.enable = true;

@@ -18,21 +18,6 @@
         "type": "github"
       }
     },
-    "claude-code-nix": {
-      "inputs": {
-        "nixpkgs": "nixpkgs_2"
-      },
-      "locked": {
-        "lastModified": 1,
-        "narHash": "sha256-IrADA8mwRaICgEk2ZPvSw+MoJWbTRMICarvGciqoeIU=",
-        "path": "./pkgs/claude-code",
-        "type": "path"
-      },
-      "original": {
-        "path": "./pkgs/claude-code",
-        "type": "path"
-      }
-    },
     "crane": {
       "locked": {
         "lastModified": 1736032295,
@@ -224,7 +209,7 @@
     },
     "mic92": {
       "inputs": {
-        "nixpkgs": "nixpkgs_3"
+        "nixpkgs": "nixpkgs_2"
       },
       "locked": {
         "lastModified": 1741174190,
@@ -368,22 +353,6 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1743448293,
-        "narHash": "sha256-bmEPmSjJakAp/JojZRrUvNcDX2R5/nuX6bm+seVaGhs=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "77b584d61ff80b4cef9245829a6f1dfad5afdfa3",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "ref": "nixos-unstable",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
-    "nixpkgs_3": {
-      "locked": {
         "lastModified": 1741169294,
         "narHash": "sha256-O7rl2AOqY/Vw6WeY3dVd/mZft8Ku3xVWoTmrROR/gW4=",
         "ref": "refs/heads/main",
@@ -398,7 +367,7 @@
         "url": "https://github.com/Mic92/nixpkgs"
       }
     },
-    "nixpkgs_4": {
+    "nixpkgs_3": {
       "locked": {
         "lastModified": 1743448293,
         "narHash": "sha256-bmEPmSjJakAp/JojZRrUvNcDX2R5/nuX6bm+seVaGhs=",
@@ -414,7 +383,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_5": {
+    "nixpkgs_4": {
       "locked": {
         "lastModified": 1627814220,
         "narHash": "sha256-P+MDgdZw2CBk9X1ZZaUgHgN+32pTfLFf3XVIBOXirI4=",
@@ -430,7 +399,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_6": {
+    "nixpkgs_5": {
       "locked": {
         "lastModified": 1736429638,
         "narHash": "sha256-dDWqQqSgMQXw5eFtcyoVijv7HbYJZOIo+jWQdJtsxn4=",
@@ -446,7 +415,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_7": {
+    "nixpkgs_6": {
       "locked": {
         "lastModified": 1727348695,
         "narHash": "sha256-J+PeFKSDV+pHL7ukkfpVzCOO7mBSrrpJ3svwBFABbhI=",
@@ -490,11 +459,10 @@
     "root": {
       "inputs": {
         "catppuccin": "catppuccin",
-        "claude-code-nix": "claude-code-nix",
         "home-manager": "home-manager",
         "mic92": "mic92",
         "nixos-hardware": "nixos-hardware",
-        "nixpkgs": "nixpkgs_4",
+        "nixpkgs": "nixpkgs_3",
         "nvf": "nvf",
         "rycee": "rycee",
         "schizofox": "schizofox",
@@ -526,7 +494,7 @@
     "rycee": {
       "inputs": {
         "flake-utils": "flake-utils_2",
-        "nixpkgs": "nixpkgs_5"
+        "nixpkgs": "nixpkgs_4"
       },
       "locked": {
         "dir": "pkgs/firefox-addons",
@@ -550,7 +518,7 @@
         "flake-parts": "flake-parts_2",
         "home-manager": "home-manager_2",
         "nixpak": "nixpak",
-        "nixpkgs": "nixpkgs_6",
+        "nixpkgs": "nixpkgs_5",
         "searx-randomizer": "searx-randomizer",
         "systems": "systems_3"
       },
@@ -638,7 +606,7 @@
     },
     "zen-browser": {
       "inputs": {
-        "nixpkgs": "nixpkgs_7"
+        "nixpkgs": "nixpkgs_6"
       },
       "locked": {
         "lastModified": 1727721329,
