@@ -35,10 +35,11 @@
     };
 
     services.tailscale.enable = lib.mkIf config.tailscale.enable true;
-    
+
     services.mullvad-vpn = lib.mkIf config.mullvad.enable {
       enable = true;
       package = pkgs.mullvad-vpn; # gui
+    environment.systemPackages = [ pkgs.openvpn ];
     };
   };
 }
