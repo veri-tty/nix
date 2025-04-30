@@ -29,11 +29,12 @@
         docker-compose
         compose2nix
       ]))
-      
+
       (lib.mkIf config.qemu.enable [
         pkgs.qemu
         pkgs.quickemu
       ])
     ];
+    programs.tmux.enable = lib.mkIf config.qemu.enable true;
   };
 }
