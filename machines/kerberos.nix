@@ -20,6 +20,7 @@
   floorp.enable = false;
   shell.enable = true;
   docker.enable = true;
+  qemu.enable = true;
   networkmanager.enable = true;
   tailscale.enable = true;
   mullvad.enable = false;

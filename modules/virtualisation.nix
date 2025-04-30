@@ -11,6 +11,12 @@
         default = false;
       };
     };
+    qemu = {
+      enable = lib.mkEnableOption {
+        description = "qemu or not.";
+        default = false;
+      };
+    };
   };
   config = lib.mkIf config.docker.enable {
     virtualisation.docker.enable = true;
@@ -21,4 +27,10 @@
       compose2nix
     ];
   };
+  environment = lib.mkIf config.qemu.enable {
+      systemPackages = [
+        pkgs.qemu
+        pkgs.quickemu
+      ];
+    };
 }

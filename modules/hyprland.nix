@@ -30,6 +30,7 @@
       pkgs.wofi
       pkgs.playerctl
       pkgs.wireplumber
+      pkgs.brightnessctl
       pkgs.nerd-fonts.hack
       pkgs.font-awesome
     ];
