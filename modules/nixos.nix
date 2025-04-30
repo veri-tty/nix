@@ -11,6 +11,7 @@
       options = "--delete-older-than 7d";
     };
     optimise.automatic = true;
+    settings.download-buffer-size = 524288000;
   };
   boot.loader.systemd-boot.configurationLimit = 120;
   nixpkgs.config.allowUnfree = true;
