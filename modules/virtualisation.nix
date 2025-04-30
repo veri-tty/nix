@@ -18,19 +18,22 @@
       };
     };
   };
-  config = lib.mkIf config.docker.enable {
-    virtualisation.docker.enable = true;
-     virtualisation.docker.autoPrune.enable = true;
+  config = {
+    virtualisation = lib.mkIf config.docker.enable {
+      docker.enable = true;
+      docker.autoPrune.enable = true;
+    };
 
-    environment.systemPackages = with pkgs; [
-      docker-compose
-      compose2nix
-    ];
-  environment = lib.mkIf config.qemu.enable {
-      systemPackages = [
+    environment.systemPackages = lib.mkMerge [
+      (lib.mkIf config.docker.enable (with pkgs; [
+        docker-compose
+        compose2nix
+      ]))
+      
+      (lib.mkIf config.qemu.enable [
         pkgs.qemu
         pkgs.quickemu
-      ];
-    };
+      ])
+    ];
   };
 }
