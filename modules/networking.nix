@@ -39,7 +39,7 @@
     services.mullvad-vpn = lib.mkIf config.mullvad.enable {
       enable = true;
       package = pkgs.mullvad-vpn; # gui
-    environment.systemPackages = [ pkgs.openvpn ];
     };
+    environment.systemPackages = [ pkgs.openvpn ];
   };
 }
