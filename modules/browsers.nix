@@ -83,7 +83,7 @@
         };
 
         search = {
-          defaultSearchEngine = "SearXNG";
+          defaultSearchEngine = "DuckDuckGo";
           removeEngines = ["Google" "Bing" "Amazon.com" "eBay" "Twitter" "Wikipedia"];
           searxUrl = "https://searx.bndkt.io/";
           searxQuery = "https://searx.bndkt.io/search?q={searchTerms}&categories=general";

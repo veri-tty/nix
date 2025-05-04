@@ -9,6 +9,7 @@
 
     schizofox.url = "github:schizofox/schizofox";
 
+    nixarr.url = "github:rasmus-kirk/nixarr";
     # Home Manager
     home-manager = {
       url = "github:nix-community/home-manager";

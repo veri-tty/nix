@@ -15,9 +15,14 @@
 
   config = {
     environment.systemPackages = lib.mkIf config.applications.enable [
+      pkgs.gnome-bluetooth
+      pkgs.blueberry
+      pkgs.vlc
+      pkgs.yt-dlp
       pkgs.libreoffice
       pkgs.obsidian
       pkgs.spotify
+      pkgs.thunderbird
       # Crypto Wallets
       pkgs.electrum # btc
       pkgs.feather # xmr

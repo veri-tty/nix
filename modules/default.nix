@@ -7,6 +7,7 @@
     ./nvidia-gpu.nix
     ./pentesting.nix
     ./filesync.nix
+    ./theme.nix
     ./networking.nix
     ./virtualisation.nix
     ./nixos.nix

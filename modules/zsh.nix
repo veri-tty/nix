@@ -36,7 +36,6 @@
       programs.bat = {
         enable = true;
         config = {
-          theme = "Dracula"; # Default theme
           pager = "less -R"; # Don't auto-exit if one screen
         };
       };

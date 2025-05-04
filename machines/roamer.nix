@@ -13,6 +13,7 @@
 
   # Machine identification
   networking.hostName = "roamer";
+  hardware.bluetooth.enable = true;
 
   # Module configuration
   hyprland.enable = true;
@@ -24,6 +25,7 @@
   tailscale.enable = true;
   mullvad.enable = true;
   nvidia.enable = false;
+  themeing.enable = true;
   syncthing.enable = true;
   samba.enable = false;
   pentesting.enable = true;

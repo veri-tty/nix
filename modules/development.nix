@@ -22,6 +22,9 @@
       zed = {
         enable = lib.mkEnableOption "Enable Zed IDE";
       };
+      rust = {
+        enable = lib.mkEnableOption "Enable Rust Toolchain";
+      };
     };
   };
 
@@ -57,5 +60,7 @@
 
       ]
     );
+  environment.systemPackages = lib.mkIf config.development.rust.enable [ pkgs.rustc pkgs.rustfmt ];
+
   };
 }

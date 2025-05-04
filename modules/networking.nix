@@ -28,6 +28,8 @@
   config = {
     ## Enable network manager
     networking.networkmanager.enable = lib.mkIf config.networkmanager.enable true;
+    environment.systemPackages = [ pkgs.openvpn ];
+
 
     ## Enabling appropriate groups
     users.users.ml = lib.mkIf config.networkmanager.enable {
@@ -40,6 +42,5 @@
       enable = true;
       package = pkgs.mullvad-vpn; # gui
     };
-    environment.systemPackages = [ pkgs.openvpn ];
   };
 }
