@@ -13,10 +13,10 @@
       };
     };
   };
+  imports = [
+        inputs.nixarr.nixosModules.default
+      ];
   config = {
-    imports = [
-      inputs.nixarr.nixosModules.default
-    ];
     nixarr = lib.mkIf config.library.enable {
       enable = true;
       stateDir = "/mnt/dockerdata/servarr/";
