@@ -40,6 +40,7 @@
         enable = true;
         options.enableKepubify = true;
       };
+      calibre-server.enable = true;
     };
   };
 }

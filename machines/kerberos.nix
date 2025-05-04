@@ -28,6 +28,7 @@
   syncthing.enable = true;
   samba.enable = true;
   pentesting.enable = false;
+  library.enable = true;
   ssh.enable = true;
   wallpaper = "/home/ml/pics/wall/wallhaven-jx632y.jpg";
 
