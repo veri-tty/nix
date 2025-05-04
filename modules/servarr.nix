@@ -34,6 +34,7 @@
         privateTrackers.cross-seed.enable = true;
         vpn.enable = true;
       };
+      prowlarr.enable = true;
     };
     services = lib.mkIf config.library.enable {
       calibre-web = {
