@@ -22,6 +22,5 @@
     ./ssh.nix
     ./server.nix
     ./servarr.nix
-
   ];
 }

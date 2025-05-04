@@ -14,7 +14,7 @@
     };
   };
   config = {
-    modules = [
+    imports = [
       inputs.nixarr.nixosModules.default
     ];
     nixarr = lib.mkIf config.library.enable {
