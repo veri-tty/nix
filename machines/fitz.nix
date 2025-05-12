@@ -16,6 +16,7 @@
 
   # Module configuration
   hyprland.enable = true;
+  kde.enable = true; # Enable KDE Plasma desktop
   floorp.enable = true;
   schizofox.enable = true;
   shell.enable = true;
@@ -27,7 +28,19 @@
   syncthing.enable = true;
   samba.enable = false;
   pentesting.enable = true;
+  disko.enable = false; # Only enable during installation
+  #secrets.enable = false; # Temporarily disabled for testing
   wallpaper = "/home/ml/pics/wall/wallhaven-jx632y.jpg";
+
+  # Display manager settings for KDE
+  services.displayManager.setup = {
+    enable = true;
+    defaultSession = "plasma";
+    theme = {
+      enable = true;
+      name = "breeze";
+    };
+  };
 
   # Terminal configurations
   terminal = {
@@ -67,21 +80,21 @@
   boot.extraModulePackages = [];
 
   fileSystems."/" = {
-    device = "/dev/disk/by-uuid/8e3621d5-f4e8-41d9-8647-a8cff8e2d1eb";
+    device = "/dev/disk/by-uuid/c6838a99-4127-42d2-b162-c57685dea4f5";
     fsType = "ext4";
   };
 
-  boot.initrd.luks.devices."luks-8e1273aa-baec-406b-9820-4c33e93fe69f".device = "/dev/disk/by-uuid/8e1273aa-baec-406b-9820-4c33e93fe69f";
+  boot.initrd.luks.devices."luks-f9f1ff11-8d78-42af-8a05-ed9be5fecffd".device = "/dev/disk/by-uuid/f9f1ff11-8d78-42af-8a05-ed9be5fecffd";
 
   fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/2380-E5D4";
+    device = "/dev/disk/by-uuid/5721-1293";
     fsType = "vfat";
     options = ["fmask=0077" "dmask=0077"];
   };
 
-  swapDevices = [
-    {device = "/dev/disk/by-uuid/64d36f20-2d6a-467f-9215-f41c9d035d45";}
-  ];
+#  swapDevices = [
+#    {device = "/dev/disk/by-uuid/8c8a2b69-d437-4002-817e-10a1bd6e32b0";}
+#  ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's

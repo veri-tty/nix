@@ -30,6 +30,8 @@
   pentesting.enable = false;
   library.enable = true;
   ssh.enable = true;
+  disko.enable = false; # Only enable during installation
+  #secrets.enable = true;
   wallpaper = "/home/ml/pics/wall/wallhaven-jx632y.jpg";
 
   # Terminal configurations - minimal for server

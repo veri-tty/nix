@@ -19,6 +19,18 @@
     # Theme
     catppuccin.url = "github:catppuccin/nix";
 
+    # Secret management
+    sops-nix = {
+      url = "github:mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # Disk management
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # Custom packages and repositories
     zen-browser.url = "github:MarceColl/zen-browser-flake";
     nvf = {
@@ -37,6 +49,8 @@
     mic92,
     rycee,
     catppuccin,
+    sops-nix,
+    disko,
     ...
   } @ inputs: let
     supportedSystems = ["x86_64-linux"];
@@ -54,6 +68,8 @@
           [
             ./modules # Import all modules
             home-manager.nixosModules.home-manager
+            sops-nix.nixosModules.sops
+            disko.nixosModules.disko
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;

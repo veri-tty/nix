@@ -30,13 +30,30 @@
     networking.networkmanager.enable = lib.mkIf config.networkmanager.enable true;
     environment.systemPackages = [ pkgs.openvpn ];
 
-
     ## Enabling appropriate groups
     users.users.ml = lib.mkIf config.networkmanager.enable {
       extraGroups = ["networkmanager"];
     };
 
-    services.tailscale.enable = lib.mkIf config.tailscale.enable true;
+    # Tailscale configuration with secrets integration
+    services.tailscale = lib.mkIf config.tailscale.enable {
+      enable = true;
+
+      # Use the authkey from sops-nix if secrets are enabled
+      # authKeyFile = lib.mkIf config.secrets.enable
+      #   config.sops.secrets."tailscale/authkey".path;
+
+      # Common options for all machines
+      extraUpFlags = [
+        "--ssh"
+        "--hostname=${config.networking.hostName}"
+      ];
+    };
+
+    # WiFi networks from secrets (if applicable)
+    networking.wireless = lib.mkIf (config.secrets.enable && config.networkmanager.enable) {
+      secretsFile = config.sops.secrets."network/wifi_networks".path;
+    };
 
     services.mullvad-vpn = lib.mkIf config.mullvad.enable {
       enable = true;

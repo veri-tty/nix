@@ -37,18 +37,10 @@
 
     programs.hyprland.enable = true;
 
-    # Enable display manager to auto-start Hyprland
-    services.displayManager = {
-      defaultSession = "hyprland";
-      sddm = {
-        enable = true;
-        settings.Autologin = {
-          Session = "hyprland";
-          User = "ml";
-        };
-      };
+    # Use the common display manager configuration
+    services.displayManager.setup = {
+      enable = true;
     };
-    services.displayManager.sddm.wayland.enable = true;
 
     home-manager.users.ml = {
       wayland.windowManager.hyprland = {

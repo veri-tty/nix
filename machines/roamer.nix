@@ -29,6 +29,8 @@
   syncthing.enable = true;
   samba.enable = false;
   pentesting.enable = true;
+  disko.enable = false; # Only enable during installation
+  #secrets.enable = true;
   wallpaper = "/home/ml/pics/wall/wallhaven-qzyyxd.png";
   display = "eDP-1";
 

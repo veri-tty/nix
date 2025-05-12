@@ -22,5 +22,9 @@
     ./ssh.nix
     ./server.nix
     ./servarr.nix
+    ./disko.nix
+   # ./secrets.nix
+    ./display-manager.nix
+    ./kde.nix
   ];
 }
