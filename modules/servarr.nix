@@ -31,7 +31,7 @@
       transmission = {
         enable = true;
         flood.enable = true;
-        privateTrackers.cross-seed.enable = true;
+        #privateTrackers.cross-seed.enable = true;
         vpn.enable = true;
       };
       prowlarr.enable = true;
