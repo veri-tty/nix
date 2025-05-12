@@ -28,7 +28,7 @@
   syncthing.enable = true;
   samba.enable = true;
   pentesting.enable = false;
-  library.enable = true;
+  #library.enable = true;
   ssh.enable = true;
   disko.enable = false; # Only enable during installation
   #secrets.enable = true;
