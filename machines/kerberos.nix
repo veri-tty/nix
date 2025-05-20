@@ -25,7 +25,7 @@
   tailscale.enable = true;
   mullvad.enable = false;
   nvidia.enable = false;
-  syncthing.enable = true;
+  syncthing.enable = false;
   samba.enable = true;
   pentesting.enable = false;
   #library.enable = true;
