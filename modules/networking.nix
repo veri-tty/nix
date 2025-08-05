@@ -17,6 +17,12 @@
         default = false;
       };
     };
+    headscale = {
+      enable = lib.mkEnableOption {
+        description = "Enable Headscale VPN";
+        default = false;
+      };
+    };
     mullvad = {
       enable = lib.mkEnableOption {
         description = "Enable Mullvad VPN";
@@ -34,6 +40,10 @@
     users.users.ml = lib.mkIf config.networkmanager.enable {
       extraGroups = ["networkmanager"];
     };
+    services.headscale = lib.mkIf config.headscale.enable {
+      enable = true;
+    };
+
 
     # Tailscale configuration with secrets integration
     services.tailscale = lib.mkIf config.tailscale.enable {

@@ -22,7 +22,8 @@
   docker.enable = true;
   qemu.enable = true;
   networkmanager.enable = true;
-  tailscale.enable = true;
+  tailscale.enable = false;
+  headscale.enable = true;
   mullvad.enable = false;
   nvidia.enable = false;
   syncthing.enable = false;
