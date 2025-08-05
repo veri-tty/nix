@@ -42,7 +42,7 @@
     };
     services.headscale = lib.mkIf config.headscale.enable {
       enable = true;
-      settings.dns.base_domain = "headnet.lunau.xyz"
+      settings.dns.base_domain = "headnet.lunau.xyz";
     };
 
 
