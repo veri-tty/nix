@@ -1,9 +1,9 @@
 {
   config,
-  lib,
   pkgs,
   modulesPath,
   inputs,
+  lib,
   ...
 }: {
   imports = [
@@ -29,7 +29,6 @@
   samba.enable = false;
   pentesting.enable = true;
   disko.enable = false; # Only enable during installation
-  #secrets.enable = false; # Temporarily disabled for testing
   wallpaper = "/home/ml/pics/wall/wallhaven-jx632y.jpg";
 
   # Display manager settings for KDE

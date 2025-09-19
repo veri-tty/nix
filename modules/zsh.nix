@@ -6,10 +6,7 @@
 }: {
   options = {
     shell = {
-      enable = lib.mkEnableOption {
-        description = "Enable ZSH shell";
-        default = false;
-      };
+      enable = lib.mkEnableOption "Enable ZSH shell";
     };
   };
   config = lib.mkIf config.shell.enable {

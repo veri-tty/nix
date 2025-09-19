@@ -7,10 +7,7 @@
 }: {
   options = {
     themeing = {
-      enable = lib.mkEnableOption {
-        description = "Enable themeing (catppuccin for now duh)";
-        default = false;
-      };
+      enable = lib.mkEnableOption "Enable themeing (catppuccin for now duh)";
     };
   };
   config = lib.mkIf config.themeing.enable {

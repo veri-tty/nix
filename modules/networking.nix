@@ -12,22 +12,13 @@
       };
     };
     tailscale = {
-      enable = lib.mkEnableOption {
-        description = "Enable Tailscale VPN";
-        default = false;
-      };
+      enable = lib.mkEnableOption "Enable Tailscale VPN";
     };
     headscale = {
-      enable = lib.mkEnableOption {
-        description = "Enable Headscale VPN";
-        default = false;
-      };
+      enable = lib.mkEnableOption "Enable Headscale VPN";
     };
     mullvad = {
-      enable = lib.mkEnableOption {
-        description = "Enable Mullvad VPN";
-        default = false;
-      };
+      enable = lib.mkEnableOption "Enable Mullvad VPN";
     };
   };
 
@@ -46,24 +37,13 @@
     };
 
 
-    # Tailscale configuration with secrets integration
+    # Tailscale configuration
     services.tailscale = lib.mkIf config.tailscale.enable {
       enable = true;
-
-      # Use the authkey from sops-nix if secrets are enabled
-      # authKeyFile = lib.mkIf config.secrets.enable
-      #   config.sops.secrets."tailscale/authkey".path;
-
-      # Common options for all machines
       extraUpFlags = [
         "--ssh"
         "--hostname=${config.networking.hostName}"
       ];
-    };
-
-    # WiFi networks from secrets (if applicable)
-    networking.wireless = lib.mkIf (config.secrets.enable && config.networkmanager.enable) {
-      secretsFile = config.sops.secrets."network/wifi_networks".path;
     };
 
     services.mullvad-vpn = lib.mkIf config.mullvad.enable {

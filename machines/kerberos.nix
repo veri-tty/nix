@@ -7,15 +7,14 @@
   ...
 }: {
   imports = [
-    # Core modules
-    ../modules
     (modulesPath + "/profiles/qemu-guest.nix")
+    ../modules
   ];
 
-  # Hostname
+  # Machine identification
   networking.hostName = "kerberos";
 
-  # Module configuration - Server profile
+  # Module configuration
   hyprland.enable = false;
   floorp.enable = false;
   shell.enable = true;
@@ -32,17 +31,16 @@
   library.enable = false;
   ssh.enable = true;
   disko.enable = false; # Only enable during installation
-  #secrets.enable = true;
   wallpaper = "/home/ml/pics/wall/wallhaven-jx632y.jpg";
 
-  # Terminal configurations - minimal for server
+  # Terminal configurations
   terminal = {
     enable = true;
     alacritty.enable = false;
     starship.enable = true;
   };
 
-  # Development tools - server focus
+  # Development tools
   development = {
     enable = true;
     git.enable = true;
@@ -60,7 +58,7 @@
     nix.enable = true;
   };
 
-  # Desktop applications - disabled for server
+  # Desktop applications
   applications = {
     enable = false;
   };

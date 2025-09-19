@@ -6,10 +6,7 @@
 }: {
   options = {
     applications = {
-      enable = lib.mkEnableOption {
-        description = "Enable desktop applications";
-        default = false;
-      };
+      enable = lib.mkEnableOption "Enable desktop applications";
     };
   };
 

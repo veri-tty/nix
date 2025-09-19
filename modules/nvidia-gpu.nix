@@ -6,10 +6,7 @@
 }: {
   options = {
     nvidia = {
-      enable = lib.mkEnableOption {
-        description = "Nvidia or not.";
-        default = false;
-      };
+      enable = lib.mkEnableOption "Nvidia or not.";
     };
   };
   config = lib.mkIf config.nvidia.enable {

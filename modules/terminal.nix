@@ -6,21 +6,12 @@
 }: {
   options = {
     terminal = {
-      enable = lib.mkEnableOption {
-        description = "Enable terminal configurations";
-        default = false;
-      };
+      enable = lib.mkEnableOption "Enable terminal configurations";
       alacritty = {
-        enable = lib.mkEnableOption {
-          description = "Enable Alacritty terminal";
-          default = false;
-        };
+        enable = lib.mkEnableOption "Enable Alacritty terminal";
       };
       starship = {
-        enable = lib.mkEnableOption {
-          description = "Enable Starship prompt";
-          default = false;
-        };
+        enable = lib.mkEnableOption "Enable Starship prompt";
       };
     };
   };

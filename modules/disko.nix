@@ -6,10 +6,7 @@
 }: {
   options = {
     disko = {
-      enable = lib.mkEnableOption {
-        description = "Enable disko disk configuration";
-        default = false;
-      };
+      enable = lib.mkEnableOption "Enable disko disk configuration";
     };
   };
 

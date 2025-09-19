@@ -6,16 +6,10 @@
 }: {
   options = {
     docker = {
-      enable = lib.mkEnableOption {
-        description = "docker or not.";
-        default = false;
-      };
+      enable = lib.mkEnableOption "docker or not.";
     };
     qemu = {
-      enable = lib.mkEnableOption {
-        description = "qemu or not.";
-        default = false;
-      };
+      enable = lib.mkEnableOption "qemu or not.";
     };
   };
   config = {

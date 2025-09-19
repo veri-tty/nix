@@ -6,39 +6,21 @@
 }: {
   options = {
     utilities = {
-      enable = lib.mkEnableOption {
-        description = "Enable utility packages";
-        default = false;
-      };
+      enable = lib.mkEnableOption "Enable utility packages";
       compression = {
-        enable = lib.mkEnableOption {
-          description = "Enable compression tools";
-          default = false;
-        };
+        enable = lib.mkEnableOption "Enable compression tools";
       };
       text = {
-        enable = lib.mkEnableOption {
-          description = "Enable text processing tools";
-          default = false;
-        };
+        enable = lib.mkEnableOption "Enable text processing tools";
       };
       system = {
-        enable = lib.mkEnableOption {
-          description = "Enable system monitoring tools";
-          default = false;
-        };
+        enable = lib.mkEnableOption "Enable system monitoring tools";
       };
       nix = {
-        enable = lib.mkEnableOption {
-          description = "Enable Nix-specific tools";
-          default = false;
-        };
+        enable = lib.mkEnableOption "Enable Nix-specific tools";
       };
       server = {
-        enable = lib.mkEnableOption {
-          description = "Enable soem tools i use to interact with my servers";
-          default = false;
-        };
+        enable = lib.mkEnableOption "Enable soem tools i use to interact with my servers";
       };
     };
   };

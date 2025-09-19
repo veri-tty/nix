@@ -7,16 +7,10 @@
 }: {
   options = {
     floorp = {
-      enable = lib.mkEnableOption {
-        description = "Enable Floorp";
-        default = false;
-      };
+      enable = lib.mkEnableOption "Enable Floorp";
     };
     schizofox = {
-      enable = lib.mkEnableOption {
-        description = "Enable the schizo browser";
-        default = false;
-      };
+      enable = lib.mkEnableOption "Enable the schizo browser";
     };
   };
   config = lib.mkMerge [

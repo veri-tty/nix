@@ -6,16 +6,10 @@
 }: {
   options = {
     syncthing = {
-      enable = lib.mkEnableOption {
-        description = "Enable Syncthing file synchronization";
-        default = false;
-      };
+      enable = lib.mkEnableOption "Enable Syncthing file synchronization";
     };
     samba = {
-      enable = lib.mkEnableOption {
-        description = "Enable Samba file sharing";
-        default = false;
-      };
+      enable = lib.mkEnableOption "Enable Samba file sharing";
     };
   };
 

@@ -19,12 +19,6 @@
     # Theme
     catppuccin.url = "github:catppuccin/nix";
 
-    # Secret management
-    sops-nix = {
-      url = "github:mic92/sops-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     # Disk management
     disko = {
       url = "github:nix-community/disko";
@@ -38,7 +32,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     rycee.url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
-    mic92.url = "github:Mic92/nur-packages";
   };
 
   outputs = {
@@ -46,10 +39,8 @@
     nixpkgs,
     nixos-hardware,
     home-manager,
-    mic92,
     rycee,
     catppuccin,
-    sops-nix,
     disko,
     ...
   } @ inputs: let
@@ -68,7 +59,6 @@
           [
             ./modules # Import all modules
             home-manager.nixosModules.home-manager
-            sops-nix.nixosModules.sops
             disko.nixosModules.disko
             {
               home-manager.useGlobalPkgs = true;

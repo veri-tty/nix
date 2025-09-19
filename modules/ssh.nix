@@ -6,10 +6,7 @@
 }: {
   options = {
     ssh = {
-      enable = lib.mkEnableOption {
-        description = "Enable OpenSSH server.";
-        default = false;
-      };
+      enable = lib.mkEnableOption "Enable OpenSSH server.";
     };
   };
   config = lib.mkIf config.ssh.enable {
