@@ -29,7 +29,7 @@
   samba.enable = true;
   pentesting.enable = false;
   library.enable = false;
-  ssh.enable = true;
+  ssh.server.enable = true;
   disko.enable = false; # Only enable during installation
   wallpaper = "/home/ml/pics/wall/wallhaven-jx632y.jpg";
 

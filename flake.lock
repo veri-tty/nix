@@ -227,24 +227,6 @@
         "type": "github"
       }
     },
-    "mic92": {
-      "inputs": {
-        "nixpkgs": "nixpkgs_2"
-      },
-      "locked": {
-        "lastModified": 1741174190,
-        "narHash": "sha256-yxTBmmmCa1RABqnLbtrjuHEgmarBRfKiNZe8r4cpUVU=",
-        "owner": "Mic92",
-        "repo": "nur-packages",
-        "rev": "d49cfe88cd433c6587ba958e3a8ebd5661020ad7",
-        "type": "github"
-      },
-      "original": {
-        "owner": "Mic92",
-        "repo": "nur-packages",
-        "type": "github"
-      }
-    },
     "mnw": {
       "locked": {
         "lastModified": 1742255973,
@@ -288,7 +270,7 @@
     },
     "nixarr": {
       "inputs": {
-        "nixpkgs": "nixpkgs_3",
+        "nixpkgs": "nixpkgs_2",
         "vpnconfinement": "vpnconfinement",
         "website-builder": "website-builder"
       },
@@ -393,22 +375,6 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1741169294,
-        "narHash": "sha256-O7rl2AOqY/Vw6WeY3dVd/mZft8Ku3xVWoTmrROR/gW4=",
-        "ref": "refs/heads/main",
-        "rev": "8b45feb673c06b7886e382b942f7481fded56cf1",
-        "shallow": true,
-        "type": "git",
-        "url": "https://github.com/Mic92/nixpkgs"
-      },
-      "original": {
-        "shallow": true,
-        "type": "git",
-        "url": "https://github.com/Mic92/nixpkgs"
-      }
-    },
-    "nixpkgs_3": {
-      "locked": {
         "lastModified": 1741402956,
         "narHash": "sha256-y2hByvBM03s9T2fpeLjW6iprbxnhV9mJMmSwCHc41ZQ=",
         "owner": "nixos",
@@ -423,7 +389,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_4": {
+    "nixpkgs_3": {
       "locked": {
         "lastModified": 1743448293,
         "narHash": "sha256-bmEPmSjJakAp/JojZRrUvNcDX2R5/nuX6bm+seVaGhs=",
@@ -439,7 +405,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_5": {
+    "nixpkgs_4": {
       "locked": {
         "lastModified": 1627814220,
         "narHash": "sha256-P+MDgdZw2CBk9X1ZZaUgHgN+32pTfLFf3XVIBOXirI4=",
@@ -455,7 +421,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_6": {
+    "nixpkgs_5": {
       "locked": {
         "lastModified": 1736429638,
         "narHash": "sha256-dDWqQqSgMQXw5eFtcyoVijv7HbYJZOIo+jWQdJtsxn4=",
@@ -471,7 +437,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_7": {
+    "nixpkgs_6": {
       "locked": {
         "lastModified": 1727348695,
         "narHash": "sha256-J+PeFKSDV+pHL7ukkfpVzCOO7mBSrrpJ3svwBFABbhI=",
@@ -517,14 +483,12 @@
         "catppuccin": "catppuccin",
         "disko": "disko",
         "home-manager": "home-manager",
-        "mic92": "mic92",
         "nixarr": "nixarr",
         "nixos-hardware": "nixos-hardware",
-        "nixpkgs": "nixpkgs_4",
+        "nixpkgs": "nixpkgs_3",
         "nvf": "nvf",
         "rycee": "rycee",
         "schizofox": "schizofox",
-        "sops-nix": "sops-nix",
         "zen-browser": "zen-browser"
       }
     },
@@ -553,7 +517,7 @@
     "rycee": {
       "inputs": {
         "flake-utils": "flake-utils_2",
-        "nixpkgs": "nixpkgs_5"
+        "nixpkgs": "nixpkgs_4"
       },
       "locked": {
         "dir": "pkgs/firefox-addons",
@@ -577,7 +541,7 @@
         "flake-parts": "flake-parts_2",
         "home-manager": "home-manager_2",
         "nixpak": "nixpak",
-        "nixpkgs": "nixpkgs_6",
+        "nixpkgs": "nixpkgs_5",
         "searx-randomizer": "searx-randomizer",
         "systems": "systems_3"
       },
@@ -615,26 +579,6 @@
       "original": {
         "owner": "schizofox",
         "repo": "searx-randomizer",
-        "type": "github"
-      }
-    },
-    "sops-nix": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1746485181,
-        "narHash": "sha256-PxrrSFLaC7YuItShxmYbMgSuFFuwxBB+qsl9BZUnRvg=",
-        "owner": "mic92",
-        "repo": "sops-nix",
-        "rev": "e93ee1d900ad264d65e9701a5c6f895683433386",
-        "type": "github"
-      },
-      "original": {
-        "owner": "mic92",
-        "repo": "sops-nix",
         "type": "github"
       }
     },
@@ -721,7 +665,7 @@
     },
     "zen-browser": {
       "inputs": {
-        "nixpkgs": "nixpkgs_7"
+        "nixpkgs": "nixpkgs_6"
       },
       "locked": {
         "lastModified": 1727721329,
