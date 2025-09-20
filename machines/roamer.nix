@@ -94,15 +94,15 @@
   ];
 
   fileSystems."/" = {
-    device = "/dev/disk/by-uuid/d4a78e89-46b3-45de-8802-bb2e66970012";
+    device = "/dev/disk/by-uuid/4b3ac32f-53f7-4c10-8b81-babc1edce684";
     fsType = "ext4";
   };
 
-  boot.initrd.luks.devices."crypt".device = "/dev/disk/by-uuid/edfeda0f-fc4d-4582-b9d5-5b00fa538f64";
+  boot.initrd.luks.devices."crypt".device = "/dev/disk/by-uuid/ff75af57-9f69-428e-bfa5-df64d6cf64a8";
   boot.loader.systemd-boot.enable = true;
 
   fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/E778-08F8";
+    device = "/dev/disk/by-uuid/2F0C-8EB3";
     fsType = "vfat";
     options = ["fmask=0022" "dmask=0022"];
   };
