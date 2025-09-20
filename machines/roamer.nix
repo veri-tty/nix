@@ -33,7 +33,7 @@
   wallpaper = "/home/ml/pics/wall/wallhaven-qzyyxd.png";
   display = "eDP-1";
   ssh.client.enable = true;
-
+  claude-code.enable = true;
   # Terminal configurations
   terminal = {
     enable = true;

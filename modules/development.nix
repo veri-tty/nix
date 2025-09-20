@@ -25,6 +25,9 @@
       rust = {
         enable = lib.mkEnableOption "Enable Rust Toolchain";
       };
+      claude-code = {
+        enable = lib.mkEnableOption "Claude Code CLI";
+      };
     };
   };
 
@@ -35,7 +38,6 @@
       userName = "veri-tty";
       userEmail = "verity@cock.li";
     };
-
     home-manager.users.ml.programs.zed-editor = lib.mkIf config.development.zed.enable {
               enable = true;
     };
@@ -60,7 +62,13 @@
 
       ]
     );
-  environment.systemPackages = lib.mkIf config.development.rust.enable [ pkgs.rustc pkgs.rustfmt ];
-
+  environment.systemPackages = 
+      (lib.optionals config.development.claude-code.enable [
+        pkgs.claude-code
+      ])
+      ++ (lib.optionals config.development.rust.enable [
+        pkgs.rustc
+        pkgs.rustfmt
+      ]);
   };
 }

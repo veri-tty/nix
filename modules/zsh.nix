@@ -42,7 +42,7 @@
         shellAliases = {
           nrs = "sudo nixos-rebuild switch --flake /home/ml/projects/nix#";
           cat = "bat";
-          claude = "/home/ml/.npm/bin/claude";
+          #claude = "/home/ml/.npm/bin/claude";
         };
 
         ## Enable some QOL features
