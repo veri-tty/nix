@@ -18,7 +18,7 @@
       "github.com" = {
         hostname = "github.com";
         user = "git";
-        identityFile = "/home/user/.ssh/github";
+        identityFile = "/home/ml/.ssh/github";
         extraOptions = {
         PreferredAuthentications = "publickey";
         };

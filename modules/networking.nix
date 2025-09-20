@@ -41,8 +41,8 @@
     services.tailscale = lib.mkIf config.tailscale.enable {
       enable = true;
       extraUpFlags = [
-        "--ssh"
-        "--hostname=${config.networking.hostName}"
+        
+       # "--hostname=${config.networking.hostName}"
       ];
     };
 

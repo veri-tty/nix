@@ -32,6 +32,7 @@
   disko.enable = false; # Only enable during installation
   wallpaper = "/home/ml/pics/wall/wallhaven-qzyyxd.png";
   display = "eDP-1";
+  ssh.client.enable = true;
 
   # Terminal configurations
   terminal = {
